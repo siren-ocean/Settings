@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<com.android.settings.localepicker.LocaleDragCell
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="?android:listPreferredItemHeight"
+              android:background="?android:colorBackground"
+              android:layoutDirection="locale"
+              android:textDirection="locale">
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        style="@style/LanguageCheckboxAndLabel"
+        android:paddingStart="24dp"
+        android:layout_toStartOf="@+id/dragHandle"/>
+
+    <TextView
+        android:id="@+id/label"
+        style="@style/LanguageCheckboxAndLabel"
+        android:paddingStart="56dp"
+        android:layout_toStartOf="@+id/dragHandle"/>
+
+    <TextView
+        android:id="@+id/miniLabel"
+        style="@style/LanguageCheckboxAndLabel"
+        android:layout_width="wrap_content"
+        android:textColor="?android:attr/colorAccent"
+        android:minWidth="24sp"
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_alignTop="@id/checkbox"
+        android:layout_alignBottom="@id/checkbox"/>
+
+    <TextView
+        android:id="@+id/l10nWarn"
+        style="@style/LanguageCheckboxAndLabel"
+        android:layout_marginTop="-28dp"
+        android:paddingStart="56dp"
+        android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+        android:textColor="?android:textColorSecondary"
+        android:text="@string/locale_not_translated"
+        android:layout_toStartOf="@+id/dragHandle"
+        android:layout_below="@id/label"/>
+
+    <ImageView
+        android:id="@+id/dragHandle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+        android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+        android:layout_gravity="center_vertical"
+        android:src="@drawable/drag_handle"
+        android:importantForAccessibility="no"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/checkbox"
+        android:layout_alignBottom="@id/checkbox"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        android:layout_alignParentBottom="true"/>
+
+</com.android.settings.localepicker.LocaleDragCell>

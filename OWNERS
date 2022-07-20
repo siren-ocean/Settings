@@ -1,0 +1,15 @@
+# Use this reviewer by default.
+android-settings-core-eng+gerrit@google.com
+
+# People who can approve changes for submission
+chiujason@google.com
+edgarwang@google.com
+emilychuang@google.com
+millchen@google.com
+stanleytfwang@google.com
+sunnyshao@google.com
+tmfang@google.com
+yantingyang@google.com
+
+# Exempt resource files (because they are in a flat directory and too hard to manage via OWNERS)
+per-file *.xml=*

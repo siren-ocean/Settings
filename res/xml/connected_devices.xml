@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2017 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="connected_devices_screen"
+    android:title="@string/connected_devices_dashboard_title">
+
+    <com.android.settings.slices.SlicePreference
+        android:key="bt_nearby_slice"
+        android:title="@string/summary_placeholder"
+        settings:controller="com.android.settings.slices.SlicePreferenceController"
+        settings:allowDividerBelow="true"/>
+
+    <PreferenceCategory
+        android:key="available_device_list"
+        android:title="@string/connected_device_media_device_title"
+        settings:controller="com.android.settings.connecteddevice.AvailableMediaDeviceGroupController"/>
+
+    <PreferenceCategory
+        android:key="connected_device_list"
+        android:title="@string/connected_device_other_device_title"
+        settings:controller="com.android.settings.connecteddevice.ConnectedDeviceGroupController"/>
+
+    <com.android.settingslib.RestrictedPreference
+        android:key="add_bt_devices"
+        android:title="@string/bluetooth_pairing_pref_title"
+        android:icon="@drawable/ic_add_24dp"
+        android:summary="@string/connected_device_add_device_summary"
+        android:fragment="com.android.settings.bluetooth.BluetoothPairingDetail"
+        settings:allowDividerAbove="true"
+        settings:keywords="@string/keywords_add_bt_device"
+        settings:userRestriction="no_config_bluetooth"
+        settings:useAdminDisabledSummary="true"
+        settings:controller="com.android.settings.connecteddevice.AddDevicePreferenceController"/>
+
+    <PreferenceCategory
+        android:key="previously_connected_devices"
+        android:title="@string/connected_device_previously_connected_title"
+        settings:controller="com.android.settings.connecteddevice.PreviouslyConnectedDevicePreferenceController">
+
+        <Preference
+            android:key="previously_connected_devices_see_all"
+            android:title="@string/previous_connected_see_all"
+            android:icon="@drawable/ic_chevron_right_24dp"
+            android:order="10"
+            settings:searchable="false"
+            android:fragment="com.android.settings.connecteddevice.PreviouslyConnectedDeviceDashboardFragment"/>
+    </PreferenceCategory>
+
+    <Preference
+        android:key="connection_preferences"
+        android:title="@string/connected_device_connections_title"
+        android:summary="@string/summary_placeholder"
+        android:fragment="com.android.settings.connecteddevice.AdvancedConnectedDeviceDashboardFragment"
+        settings:allowDividerAbove="true"
+        settings:controller="com.android.settings.connecteddevice.AdvancedConnectedDeviceController"/>
+
+    <com.android.settingslib.widget.FooterPreference
+        android:key="discoverable_footer"
+        android:title="@string/bluetooth_off_footer"
+        android:selectable="false"
+        settings:controller="com.android.settings.connecteddevice.DiscoverableFooterPreferenceController">
+    </com.android.settingslib.widget.FooterPreference>
+
+</PreferenceScreen>

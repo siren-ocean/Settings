@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2016 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:persistent="true"
+    android:title="@string/vision_settings_title">
+
+    <com.android.settings.accessibility.DividerAllowedBelowPreference
+        android:key="vision_settings_summary"
+        android:layout="@layout/preference_multiline_title"
+        android:selectable="false"
+        android:title="@string/vision_settings_description" />
+
+    <Preference
+        settings:controller="com.android.settings.accessibility.MagnificationPreferenceController"
+        android:fragment="com.android.settings.accessibility.MagnificationPreferenceFragment"
+        android:key="screen_magnification_preference"
+        android:summary="@string/accessibility_preference_magnification_summary"
+        android:title="@string/accessibility_screen_magnification_title" />
+
+    <Preference
+        android:fragment="com.android.settings.display.FontSizePreferenceFragmentForSetupWizard"
+        android:key="font_size_preference"
+        android:summary="@string/short_summary_font_size"
+        android:title="@string/title_font_size" />
+
+    <com.android.settings.display.ScreenZoomPreference
+        android:fragment="com.android.settings.display.ScreenZoomPreferenceFragmentForSetupWizard"
+        android:key="force_density_preference"
+        android:summary="@string/screen_zoom_short_summary"
+        android:title="@string/screen_zoom_title" />
+
+    <Preference
+        android:fragment="com.android.settings.accessibility.ToggleSelectToSpeakPreferenceFragmentForSetupWizard"
+        android:key="select_to_speak_preference"
+        android:persistent="true"
+        android:summary="@string/select_to_speak_summary" />
+
+    <Preference
+        android:fragment="com.android.settings.accessibility.ToggleScreenReaderPreferenceFragmentForSetupWizard"
+        android:key="screen_reader_preference"
+        android:persistent="true"
+        android:summary="@string/talkback_summary" />
+
+</PreferenceScreen>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/date_and_time"
+    settings:keywords="@string/keywords_date_and_time">
+
+    <com.android.settingslib.RestrictedSwitchPreference
+        android:key="auto_time"
+        android:title="@string/date_time_auto"
+        settings:useAdditionalSummary="true"
+        settings:userRestriction="no_config_date_time"/>
+
+    <com.android.settingslib.RestrictedPreference
+        android:key="date"
+        android:title="@string/date_time_set_date_title"
+        android:summary="@string/summary_placeholder"
+        settings:userRestriction="no_config_date_time"/>
+
+    <com.android.settingslib.RestrictedPreference
+        android:key="time"
+        android:title="@string/date_time_set_time_title"
+        android:summary="@string/summary_placeholder"
+        settings:userRestriction="no_config_date_time"/>
+
+    <com.android.settingslib.RestrictedSwitchPreference
+        android:key="auto_zone"
+        android:title="@string/zone_auto_title"
+        settings:allowDividerAbove="true"
+        settings:userRestriction="no_config_date_time"/>
+
+    <com.android.settingslib.RestrictedPreference
+        android:key="timezone"
+        android:title="@string/date_time_set_timezone_title"
+        android:summary="@string/summary_placeholder"
+        android:fragment="com.android.settings.datetime.timezone.TimeZoneSettings"
+        settings:userRestriction="no_config_date_time"
+        settings:keywords="@string/keywords_time_zone"/>
+
+    <PreferenceCategory
+        android:key="time_format_preference_category"
+        android:title="@string/time_format_category_title"
+        settings:keywords="@string/keywords_time_format">
+        <SwitchPreference
+            android:key="auto_24hour"
+            android:title="@string/date_time_24hour_auto"/>
+
+        <SwitchPreference
+            android:key="24 hour"
+            android:title="@string/date_time_24hour" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
