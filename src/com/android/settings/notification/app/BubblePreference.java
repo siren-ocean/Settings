@@ -16,10 +16,6 @@
 
 package com.android.settings.notification.app;
 
-import static android.app.NotificationManager.BUBBLE_PREFERENCE_ALL;
-import static android.app.NotificationManager.BUBBLE_PREFERENCE_NONE;
-import static android.app.NotificationManager.BUBBLE_PREFERENCE_SELECTED;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
@@ -27,14 +23,20 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+//import com.android.settingslib.R;
+import com.android.settings.R;
+import com.android.settings.Utils;
+import com.android.settingslib.RestrictedLockUtils;
+import com.android.settingslib.RestrictedPreferenceHelper;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import com.android.settings.Utils;
-import com.android.settingslib.R;
-import com.android.settingslib.RestrictedLockUtils;
-import com.android.settingslib.RestrictedPreferenceHelper;
+import static android.app.NotificationManager.BUBBLE_PREFERENCE_ALL;
+import static android.app.NotificationManager.BUBBLE_PREFERENCE_NONE;
+import static android.app.NotificationManager.BUBBLE_PREFERENCE_SELECTED;
+
+
 
 /**
  * A tri-state preference allowing a user to specify what gets to bubble.

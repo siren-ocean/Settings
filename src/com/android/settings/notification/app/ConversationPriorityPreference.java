@@ -16,12 +16,6 @@
 
 package com.android.settings.notification.app;
 
-import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
-import static android.app.NotificationManager.IMPORTANCE_LOW;
-import static android.app.NotificationManager.IMPORTANCE_UNSPECIFIED;
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
-
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
@@ -34,11 +28,19 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+//import com.android.settingslib.R;
+import com.android.settings.R;
+import com.android.settings.Utils;
+
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import com.android.settings.Utils;
-import com.android.settingslib.R;
+import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
+import static android.app.NotificationManager.IMPORTANCE_LOW;
+import static android.app.NotificationManager.IMPORTANCE_UNSPECIFIED;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 
 public class ConversationPriorityPreference extends Preference {
 

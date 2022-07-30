@@ -23,12 +23,19 @@ import java.util.Collection;
  */
 public class SearchIndexableResourcesBase implements SearchIndexableResources {
 
+    // 修改Class为SearchIndexableData
     @Override
-    public Collection<Class> getProviderValues() {
+    public Collection<SearchIndexableData> getProviderValues() {
         throw new RuntimeException("STUB!");
     }
 
-    public void addIndex(Class indexClass) {
-        throw new RuntimeException("STUB!");
+    //取代以下方法
+    @Override
+    public void addIndex(SearchIndexableData indexBundle) {
+
     }
+
+    /*public void addIndex(Class indexClass) {
+        throw new RuntimeException("STUB!");
+    }*/
 }

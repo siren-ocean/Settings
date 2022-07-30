@@ -15,13 +15,6 @@
  */
 package com.android.settings.notification;
 
-import static android.app.NotificationManager.IMPORTANCE_NONE;
-import static android.app.NotificationManager.IMPORTANCE_UNSPECIFIED;
-import static android.content.pm.LauncherApps.ShortcutQuery.FLAG_MATCH_CACHED;
-import static android.content.pm.LauncherApps.ShortcutQuery.FLAG_MATCH_DYNAMIC;
-import static android.content.pm.LauncherApps.ShortcutQuery.FLAG_MATCH_PINNED;
-import static android.content.pm.LauncherApps.ShortcutQuery.FLAG_MATCH_PINNED_BY_ANY_LAUNCHER;
-
 import android.app.INotificationManager;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
@@ -49,9 +42,7 @@ import android.text.format.DateUtils;
 import android.util.IconDrawableFactory;
 import android.util.Log;
 
-import androidx.annotation.VisibleForTesting;
-
-import com.android.settingslib.R;
+import com.android.settings.R;
 import com.android.settingslib.Utils;
 import com.android.settingslib.notification.ConversationIconFactory;
 import com.android.settingslib.utils.StringUtil;
@@ -61,6 +52,16 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import androidx.annotation.VisibleForTesting;
+
+import static android.app.NotificationManager.IMPORTANCE_NONE;
+import static android.app.NotificationManager.IMPORTANCE_UNSPECIFIED;
+import static android.content.pm.LauncherApps.ShortcutQuery.FLAG_MATCH_CACHED;
+import static android.content.pm.LauncherApps.ShortcutQuery.FLAG_MATCH_DYNAMIC;
+import static android.content.pm.LauncherApps.ShortcutQuery.FLAG_MATCH_PINNED_BY_ANY_LAUNCHER;
+
+//import com.android.settingslib.R;
 
 public class NotificationBackend {
     private static final String TAG = "NotificationBackend";

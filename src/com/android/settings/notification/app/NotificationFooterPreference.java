@@ -21,11 +21,14 @@ import android.text.method.LinkMovementMethod;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+//import com.android.settingslib.R;
+import com.android.settings.R;
+
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import com.android.settingslib.R;
+
 
 /**
  * FooterPreference that can have any key or ordering.

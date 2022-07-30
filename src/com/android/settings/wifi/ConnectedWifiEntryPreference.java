@@ -18,12 +18,14 @@ package com.android.settings.wifi;
 import android.content.Context;
 import android.view.View;
 
+//import com.android.settingslib.R;
+import com.android.settings.R;
+import com.android.settingslib.wifi.LongPressWifiEntryPreference;
+import com.android.wifitrackerlib.WifiEntry;
+
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceViewHolder;
 
-import com.android.settingslib.R;
-import com.android.settingslib.wifi.LongPressWifiEntryPreference;
-import com.android.wifitrackerlib.WifiEntry;
 
 /**
  * An AP preference for the currently connected AP.

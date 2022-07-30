@@ -16,6 +16,23 @@
 
 package com.android.settings.notification.app;
 
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+//import com.android.settingslib.R;
+import com.android.settings.R;
+import com.android.settings.Utils;
+
+import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
+
 import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
 import static android.app.NotificationManager.IMPORTANCE_HIGH;
 import static android.app.NotificationManager.IMPORTANCE_LOW;
@@ -23,24 +40,7 @@ import static android.app.NotificationManager.IMPORTANCE_MIN;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.transition.AutoTransition;
-import android.transition.Transition;
-import android.transition.TransitionManager;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.android.settings.Utils;
-import com.android.settingslib.R;
-
-import androidx.preference.Preference;
-import androidx.preference.PreferenceViewHolder;
 
 public class ImportancePreference extends Preference {
 

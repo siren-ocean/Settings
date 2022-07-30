@@ -23,13 +23,14 @@ import android.text.style.TextAppearanceSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.android.settings.LinkifyUtils;
+
 import androidx.annotation.Nullable;
 import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
-
-import com.android.settings.LinkifyUtils;
-import com.android.settingslib.R;
+//import com.android.settingslib.R;
+import com.android.settings.R;
 
 /**
  * A preference with a title that can have linkable content on click.

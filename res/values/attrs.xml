@@ -91,10 +91,13 @@
         <attr name="currentPageIndicatorColor" format="color" />
     </declare-styleable>
 
+    <!--  适配gradle编译  -->
+    <attr name="messageText" format="reference" />
+
     <!-- For ConversationMessageView -->
     <declare-styleable name="ConversationMessageView">
         <attr name="incoming" format="boolean" />
-        <attr name="messageText" format="reference" />
+        <attr name="messageText"/>
         <attr name="timestampText" format="reference" />
         <attr name="iconText" format="reference" />
         <attr name="iconTextColor" format="reference|color" />
@@ -150,7 +153,7 @@
 
     <!-- For Face enroll accessibility toggle -->
     <declare-styleable name="FaceEnrollAccessibilityToggle">
-        <attr name="messageText" format="reference" />
+        <attr name="messageText"/>
     </declare-styleable>
 
     <!-- For TwoStatesButtonPreference -->
