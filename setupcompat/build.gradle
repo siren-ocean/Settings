@@ -8,15 +8,15 @@
  *      project(':setupcompat').projectDir = new File(PATH_TO_THIS_DIRECTORY)
  *
  * And then you can include the :setupcompat project as one of your dependencies
- *      dependencies {
- *          implementation project(path: ':setupcompat')
- *      }
- */
+ *      dependencies {*          implementation project(path: ':setupcompat')
+ *}*/
 
 apply plugin: 'com.android.library'
 
 android {
     // Not specifying compileSdkVersion here so clients can specify it; must be at least Q
+    compileSdkVersion COMPILE_SDK
+    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
         minSdkVersion 14
@@ -28,6 +28,16 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.flags'
         }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    afterEvaluate {
+        generateReleaseBuildConfig.enabled = false
+        generateDebugBuildConfig.enabled = false
     }
 
     sourceSets.main {
@@ -44,5 +54,5 @@ android {
 }
 
 dependencies {
-    implementation "androidx.annotation:annotation:1.0.0"
+    implementation libs.appcompat
 }

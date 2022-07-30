@@ -11,15 +11,14 @@
  *      project(':setupcompat').projectDir = new File(PATH_TO_THIS_DIRECTORY)
  *
  * And then you can include the :setupdesign project as one of your dependencies
- *      dependencies {
- *          implementation project(path: ':setupdesign')
- *      }
- */
+ *      dependencies {*          implementation project(path: ':setupdesign')
+ *}*/
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion COMPILE_SDK
+    buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
         minSdkVersion 14
@@ -33,6 +32,16 @@ android {
         }
     }
 
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    afterEvaluate {
+        generateReleaseBuildConfig.enabled = false
+        generateDebugBuildConfig.enabled = false
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'main/AndroidManifest.xml'
@@ -44,7 +53,6 @@ android {
 
 dependencies {
     implementation project(':setupcompat')
-    implementation "androidx.annotation:annotation:1.0.0"
-    implementation "androidx.recyclerview:recyclerview:1.0.0"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation libs.appcompat
+    implementation libs.recyclerview
 }

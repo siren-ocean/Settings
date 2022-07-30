@@ -2,7 +2,6 @@
 buildscript {
     ext {
         kotlin_version = '1.4.0'
-        dagger_version = "2.19"
 
         libs = [
                 viewpager2                : 'androidx.viewpager2:viewpager2:1.0.0',
@@ -31,10 +30,6 @@ buildscript {
                 kotlinx_coroutines_android: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_version",
                 kotlinx_coroutines_core   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_version",
                 kotlin_reflect            : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
-
-                dagger_android            : "com.google.dagger:dagger-android:$dagger_version",
-                dagger_android_processor  : "com.google.dagger:dagger-android-processor:$dagger_version",
-                dagger_compiler           : "com.google.dagger:dagger-compiler:$dagger_version"
         ]
     }
 
@@ -100,13 +95,21 @@ android {
 
     buildTypes {
         release {
+            debuggable false
             minifyEnabled false
             signingConfig signingConfigs.platform
         }
 
         debug {
+            debuggable true
             minifyEnabled false
             signingConfig signingConfigs.platform
+        }
+
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "Settings.apk"
+            }
         }
     }
 
@@ -123,6 +126,11 @@ android {
             manifest.srcFile 'AndroidManifest.xml'
         }
     }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 repositories {
@@ -135,7 +143,25 @@ dependencies {
     compileOnly files('libs/framework.jar')
     compileOnly files('libs/core-all.jar')
 
+    implementation project(':WifiTrackerLib')
+    implementation project(':setupcompat')
+    implementation project(':setupdesign')
+    implementation project(':iconloaderlib')
     implementation project(':SettingsLib')
+    implementation project(':SettingsLib:ActionBarShadow')
+    implementation project(':SettingsLib:RestrictedLockUtils')
+    implementation project(':SettingsLib:ActionButtonsPreference')
+    implementation project(':SettingsLib:HelpUtils')
+    implementation project(':SettingsLib:SettingsSpinner')
+    implementation project(':SettingsLib:Tile')
+    implementation project(':SettingsLib:LayoutPreference')
+    implementation project(':SettingsLib:AppPreference')
+    implementation project(':SettingsLib:RadioButtonPreference')
+    implementation project(':SettingsLib:search')
+    implementation project(':SettingsLib:SearchWidget')
+    implementation project(':SettingsLib:EntityHeaderWidgets')
+    implementation project(':SettingsLib:AdaptiveIcon')
+    implementation project(':SettingsLib:DisplayDensityUtils')
 
     implementation(name: 'preference-1.2.0-alpha01', ext: 'aar')
     implementation(name: 'contextualcards', ext: 'aar')
@@ -152,7 +178,9 @@ dependencies {
     implementation libs.lifecycle_extensions
 
     implementation files('libs/zxing-core-1.7.jar')
-    implementation files('libs/android.hardware.dumpstate-V1.1-java.jar')// (include V1.0-java.jar)
+    implementation files('libs/android.hidl.base-V1.0-java.jar')
+    implementation files('libs/android.hardware.dumpstate-V1.0-java.jar')
+    implementation files('libs/android.hardware.dumpstate-V1.1-java.jar')
     implementation files('libs/settings-logtags.jar')
     implementation files('libs/statslog-settings.jar')
     implementation files('libs/guava.jar') // (include jsr305.jar)
