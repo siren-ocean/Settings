@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2015 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- General styles -->
+
+    <style name="SudThemeMaterial" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorBackground">@color/sud_color_background_dark</item>
+        <item name="android:indeterminateTint" tools:ignore="NewApi">@color/sud_progress_bar_color_dark</item>
+        <!-- Specify the indeterminateTintMode to work around a bug in Lollipop -->
+        <item name="android:indeterminateTintMode" tools:ignore="NewApi">src_in</item>
+        <item name="android:listPreferredItemHeight">@dimen/sud_items_preferred_height</item>
+        <item name="android:listPreferredItemPaddingEnd" tools:ignore="NewApi">?attr/sudMarginSides</item>
+        <item name="android:listPreferredItemPaddingStart" tools:ignore="NewApi">?attr/sudMarginSides</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/black</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/black</item>
+        <item name="android:textAppearanceListItemSmall" tools:ignore="NewApi">?attr/textAppearanceListItemSmall</item>
+        <item name="android:textColorLink">@color/sud_link_color_dark</item>
+        <item name="android:windowAnimationStyle">@style/Animation.SudWindowAnimation</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+
+        <item name="colorAccent">@color/sud_color_accent_dark</item>
+        <item name="sudFillContentLayoutStyle">@style/SudFillContentLayout</item>
+        <item name="listPreferredItemPaddingLeft">?attr/sudMarginSides</item>
+        <item name="listPreferredItemPaddingRight">?attr/sudMarginSides</item>
+        <item name="sudButtonAllCaps">true</item>
+        <item name="sudButtonFontFamily">sans-serif</item>
+        <item name="sudButtonHighlightAlpha">0.24</item>
+        <item name="sudCardBackground">@drawable/sud_card_bg_dark</item>
+        <item name="sudDividerInsetEnd">0dp</item>
+        <item name="sudDividerInsetStart">@dimen/sud_items_icon_divider_inset</item>
+        <item name="sudDividerInsetStartNoIcon">@dimen/sud_items_text_divider_inset</item>
+        <item name="sudItemDescriptionStyle">@style/SudItemContainer.Description</item>
+        <item name="sudItemDescriptionTitleStyle">@style/SudItemTitle</item>
+        <item name="sudListItemIconColor">@color/sud_list_item_icon_color_dark</item>
+        <item name="sudMarginSides">@dimen/sud_layout_margin_sides</item>
+        <item name="sudNavBarTheme">@style/SudNavBarThemeDark</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.SudItemSummary</item>
+    </style>
+
+    <style name="SudThemeMaterial.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorBackground">@color/sud_color_background_light</item>
+        <item name="android:indeterminateTint" tools:ignore="NewApi">@color/sud_progress_bar_color_light</item>
+        <!-- Specify the indeterminateTintMode to work around a bug in Lollipop -->
+        <item name="android:indeterminateTintMode" tools:ignore="NewApi">src_in</item>
+        <item name="android:listPreferredItemHeight">@dimen/sud_items_preferred_height</item>
+        <item name="android:listPreferredItemPaddingEnd" tools:ignore="NewApi">?attr/sudMarginSides</item>
+        <item name="android:listPreferredItemPaddingStart" tools:ignore="NewApi">?attr/sudMarginSides</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/black</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/black</item>
+        <item name="android:textAppearanceListItemSmall" tools:ignore="NewApi">?attr/textAppearanceListItemSmall</item>
+        <item name="android:textColorLink">@color/sud_link_color_light</item>
+        <item name="android:windowAnimationStyle">@style/Animation.SudWindowAnimation</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+
+        <item name="colorAccent">@color/sud_color_accent_light</item>
+        <item name="sudFillContentLayoutStyle">@style/SudFillContentLayout</item>
+        <item name="listPreferredItemPaddingLeft">?attr/sudMarginSides</item>
+        <item name="listPreferredItemPaddingRight">?attr/sudMarginSides</item>
+        <item name="sudButtonAllCaps">true</item>
+        <item name="sudButtonFontFamily">sans-serif</item>
+        <item name="sudButtonHighlightAlpha">0.24</item>
+        <item name="sudCardBackground">@drawable/sud_card_bg_light</item>
+        <item name="sudDividerInsetEnd">0dp</item>
+        <item name="sudDividerInsetStart">@dimen/sud_items_icon_divider_inset</item>
+        <item name="sudDividerInsetStartNoIcon">@dimen/sud_items_text_divider_inset</item>
+        <item name="sudItemDescriptionStyle">@style/SudItemContainer.Description</item>
+        <item name="sudItemDescriptionTitleStyle">@style/SudItemTitle</item>
+        <item name="sudListItemIconColor">@color/sud_list_item_icon_color_light</item>
+        <item name="sudMarginSides">@dimen/sud_layout_margin_sides</item>
+        <item name="sudNavBarTheme">@style/SudNavBarThemeLight</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.SudItemSummary</item>
+    </style>
+
+    <style name="SudBaseThemeGlif" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorBackground">@color/sud_glif_background_color_dark</item>
+        <item name="android:indeterminateTint" tools:ignore="NewApi">?attr/colorControlActivated</item>
+        <!-- Specify the indeterminateTintMode to work around a bug in Lollipop -->
+        <item name="android:indeterminateTintMode" tools:ignore="NewApi">src_in</item>
+        <item name="android:listPreferredItemHeight">@dimen/sud_items_preferred_height</item>
+        <item name="android:listPreferredItemPaddingEnd" tools:ignore="NewApi">?attr/sudMarginSides</item>
+        <item name="android:listPreferredItemPaddingStart" tools:ignore="NewApi">?attr/sudMarginSides</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/black</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:textAppearanceListItemSmall" tools:ignore="NewApi">?attr/textAppearanceListItemSmall</item>
+        <item name="android:textColorLink">@color/sud_color_accent_glif_dark</item>
+        <item name="android:windowAnimationStyle">@style/Animation.SudWindowAnimation</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:colorError" tools:targetApi="26">@color/sud_color_error_text_dark</item>
+
+        <item name="colorAccent">@color/sud_color_accent_glif_dark</item>
+        <item name="colorPrimary">?attr/colorAccent</item>
+        <item name="listPreferredItemPaddingLeft">?attr/sudMarginSides</item>
+        <item name="listPreferredItemPaddingRight">?attr/sudMarginSides</item>
+        <item name="sudButtonAllCaps">true</item>
+        <item name="sudButtonCornerRadius">@dimen/sud_glif_button_corner_radius</item>
+        <item name="sudButtonFontFamily">sans-serif-medium</item>
+        <item name="sudButtonHighlightAlpha">0.24</item>
+        <item name="sudColorPrimary">?attr/colorPrimary</item>
+        <item name="sudFillContentLayoutStyle">@style/SudFillContentLayout</item>
+        <item name="sudDividerInsetEnd">0dp</item>
+        <item name="sudDividerInsetStart">@dimen/sud_items_glif_icon_divider_inset</item>
+        <item name="sudDividerInsetStartNoIcon">@dimen/sud_items_glif_text_divider_inset</item>
+        <item name="sudGlifHeaderGravity">start</item>
+        <item name="sudGlifIconStyle">@style/SudGlifIcon</item>
+        <item name="sudItemDescriptionStyle">@style/SudItemContainer.Description.Glif</item>
+        <item name="sudItemDescriptionTitleStyle">@style/SudItemTitle.GlifDescription</item>
+        <item name="sudListItemIconColor">@color/sud_list_item_icon_color_dark</item>
+        <item name="sudMarginSides">@dimen/sud_glif_margin_sides</item>
+        <item name="sudScrollIndicators">bottom</item>
+        <item name="textAppearanceListItem">@style/TextAppearance.SudGlifItemTitle</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.SudGlifItemSummary</item>
+        <item name="sucFooterBarButtonFontFamily">?attr/sudButtonFontFamily</item>
+        <item name="sucFooterBarButtonCornerRadius">?attr/sudButtonCornerRadius</item>
+        <item name="sucFooterBarButtonAllCaps">?attr/sudButtonAllCaps</item>
+        <item name="sucFooterBarButtonColorControlHighlightRipple">?attr/colorAccent</item>
+        <item name="sucFooterBarButtonHighlightAlpha">?attr/sudButtonHighlightAlpha</item>
+        <item name="sucStatusBarBackground">?android:attr/colorBackground</item>
+        <item name="sucSystemNavBarBackgroundColor">@android:color/black</item>
+        <item name="sucFooterBarPaddingVertical">@dimen/sud_glif_footer_padding_vertical</item>
+    </style>
+    <style name="SudThemeGlif" parent="SudBaseThemeGlif"/>
+
+    <style name="SudBaseThemeGlif.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorBackground">@color/sud_glif_background_color_light</item>
+        <item name="android:indeterminateTint" tools:ignore="NewApi">?attr/colorControlActivated</item>
+        <!-- Specify the indeterminateTintMode to work around a bug in Lollipop -->
+        <item name="android:indeterminateTintMode" tools:ignore="NewApi">src_in</item>
+        <item name="android:listPreferredItemHeight">@dimen/sud_items_preferred_height</item>
+        <item name="android:listPreferredItemPaddingEnd" tools:ignore="NewApi">?attr/sudMarginSides</item>
+        <item name="android:listPreferredItemPaddingStart" tools:ignore="NewApi">?attr/sudMarginSides</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">@android:color/black</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:textAppearanceListItemSmall" tools:ignore="NewApi">?attr/textAppearanceListItemSmall</item>
+        <item name="android:textColorLink">@color/sud_color_accent_glif_light</item>
+        <item name="android:windowAnimationStyle">@style/Animation.SudWindowAnimation</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:colorError" tools:targetApi="26">@color/sud_color_error_text_light</item>
+
+        <item name="colorAccent">@color/sud_color_accent_glif_light</item>
+        <item name="colorPrimary">?attr/colorAccent</item>
+        <item name="listPreferredItemPaddingLeft">?attr/sudMarginSides</item>
+        <item name="listPreferredItemPaddingRight">?attr/sudMarginSides</item>
+        <item name="sudButtonAllCaps">true</item>
+        <item name="sudButtonCornerRadius">@dimen/sud_glif_button_corner_radius</item>
+        <item name="sudButtonFontFamily">sans-serif-medium</item>
+        <item name="sudButtonHighlightAlpha">0.12</item>
+        <item name="sudColorPrimary">?attr/colorPrimary</item>
+        <item name="sudFillContentLayoutStyle">@style/SudFillContentLayout</item>
+        <item name="sudDividerInsetEnd">0dp</item>
+        <item name="sudDividerInsetStart">@dimen/sud_items_glif_icon_divider_inset</item>
+        <item name="sudDividerInsetStartNoIcon">@dimen/sud_items_glif_text_divider_inset</item>
+        <item name="sudGlifHeaderGravity">start</item>
+        <item name="sudGlifIconStyle">@style/SudGlifIcon</item>
+        <item name="sudItemDescriptionStyle">@style/SudItemContainer.Description.Glif</item>
+        <item name="sudItemDescriptionTitleStyle">@style/SudItemTitle.GlifDescription</item>
+        <item name="sudListItemIconColor">@color/sud_list_item_icon_color_light</item>
+        <item name="sudMarginSides">@dimen/sud_glif_margin_sides</item>
+        <item name="sudScrollIndicators">bottom</item>
+        <item name="textAppearanceListItem">@style/TextAppearance.SudGlifItemTitle</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.SudGlifItemSummary</item>
+        <item name="sucFooterBarButtonFontFamily">?attr/sudButtonFontFamily</item>
+        <item name="sucFooterBarButtonCornerRadius">?attr/sudButtonCornerRadius</item>
+        <item name="sucFooterBarButtonAllCaps">?attr/sudButtonAllCaps</item>
+        <item name="sucFooterBarButtonColorControlHighlightRipple">?attr/colorAccent</item>
+        <item name="sucFooterBarButtonHighlightAlpha">?attr/sudButtonHighlightAlpha</item>
+        <item name="sucStatusBarBackground">?android:attr/colorBackground</item>
+        <item name="sucSystemNavBarBackgroundColor">@android:color/black</item>
+        <item name="sucFooterBarPaddingVertical">@dimen/sud_glif_footer_padding_vertical</item>
+    </style>
+    <style name="SudThemeGlif.Light" parent="SudBaseThemeGlif.Light"/>
+
+    <style name="SudThemeGlifV2" parent="SudThemeGlif">
+        <item name="android:colorBackground">@color/sud_glif_background_color_dark</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="sudBackgroundBaseColor">?android:attr/colorBackground</item>
+        <item name="sudBackgroundPatterned">false</item>
+        <item name="sudDividerInsetEnd">?attr/sudMarginSides</item>
+        <item name="sudDividerInsetStart">?attr/sudMarginSides</item>
+        <item name="sudDividerInsetStartNoIcon">?attr/sudMarginSides</item>
+        <item name="sudGlifHeaderGravity">center_horizontal</item>
+        <item name="sudScrollIndicators">top|bottom</item>
+        <item name="sudEditTextBackgroundColor">@color/sud_glif_edit_text_bg_dark_color</item>
+        <item name="android:editTextStyle">@style/SudEditText</item>
+        <item name="android:alertDialogTheme" tools:targetApi="honeycomb">@style/SudAlertDialogTheme</item>
+        <item name="sucLightStatusBar" tools:targetApi="m">?android:attr/windowLightStatusBar</item>
+    </style>
+
+    <style name="SudThemeGlifV2.Light" parent="SudThemeGlif.Light">
+        <item name="android:colorBackground">@color/sud_glif_background_color_light</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <item name="sudBackgroundBaseColor">?android:attr/colorBackground</item>
+        <item name="sudBackgroundPatterned">false</item>
+        <item name="sudDividerInsetEnd">?attr/sudMarginSides</item>
+        <item name="sudDividerInsetStart">?attr/sudMarginSides</item>
+        <item name="sudDividerInsetStartNoIcon">?attr/sudMarginSides</item>
+        <item name="sudGlifHeaderGravity">center_horizontal</item>
+        <item name="sudScrollIndicators">top|bottom</item>
+        <item name="sudEditTextBackgroundColor">@color/sud_glif_edit_text_bg_light_color</item>
+        <item name="android:editTextStyle">@style/SudEditText</item>
+        <item name="android:alertDialogTheme" tools:targetApi="honeycomb">@style/SudAlertDialogTheme.Light</item>
+        <item name="sucLightStatusBar" tools:targetApi="m">?android:attr/windowLightStatusBar</item>
+    </style>
+
+    <style name="SudThemeGlifV3" parent="SudThemeGlifV2">
+        <item name="colorAccent">@color/sud_color_accent_glif_v3_dark</item>
+        <item name="colorBackgroundFloating">@color/sud_glif_v3_dialog_background_color_dark</item>
+        <item name="android:datePickerDialogTheme">@style/SudDateTimePickerDialogTheme</item>
+        <item name="android:timePickerDialogTheme">@style/SudDateTimePickerDialogTheme</item>
+        <item name="android:textColorLink">@color/sud_color_accent_glif_v3_dark</item>
+        <item name="sudButtonAllCaps">false</item>
+        <item name="sudButtonCornerRadius">@dimen/sud_glif_v3_button_corner_radius</item>
+        <item name="sudButtonFontFamily">@string/sudFontSecondaryMedium</item>
+    </style>
+
+    <style name="SudBaseThemeGlifV3.Light" parent="SudThemeGlifV2.Light">
+        <item name="colorAccent">@color/sud_color_accent_glif_v3_light</item>
+        <item name="android:datePickerDialogTheme">@style/SudDateTimePickerDialogTheme.Light</item>
+        <item name="android:timePickerDialogTheme">@style/SudDateTimePickerDialogTheme.Light</item>
+        <item name="android:textColorLink">@color/sud_color_accent_glif_v3_light</item>
+        <item name="sudButtonAllCaps">false</item>
+        <item name="sudButtonCornerRadius">@dimen/sud_glif_v3_button_corner_radius</item>
+        <item name="sudButtonFontFamily">@string/sudFontSecondaryMedium</item>
+    </style>
+    <style name="SudThemeGlifV3.Light" parent="SudBaseThemeGlifV3.Light" />
+
+    <style name="Animation.SudWindowAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/sud_slide_next_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/sud_slide_next_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/sud_slide_back_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/sud_slide_back_out</item>
+    </style>
+
+    <!-- DayNight themes -->
+    <style name="SudThemeMaterial.DayNight" parent="SudThemeMaterial.Light" />
+    <style name="SudThemeGlif.DayNight" parent="SudThemeGlif.Light" />
+    <style name="SudThemeGlifV2.DayNight" parent="SudThemeGlifV2.Light" />
+    <style name="SudThemeGlifV3.DayNight" parent="SudThemeGlifV3.Light" />
+
+    <!-- Content styles -->
+
+    <!-- Ignore UnusedResources: Used by clients -->
+    <style name="SudContentFrame" tools:ignore="UnusedResources">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:paddingTop">@dimen/sud_content_frame_padding_top</item>
+        <item name="android:paddingLeft">?attr/sudMarginSides</item>
+        <item name="android:paddingRight">?attr/sudMarginSides</item>
+        <item name="android:paddingBottom">@dimen/sud_content_frame_padding_bottom</item>
+    </style>
+
+    <!-- Ignore UnusedResources: Used by clients -->
+    <style name="SudDescription" tools:ignore="UnusedResources">
+        <!-- Before Honeycomb, layout_gravity is needed for FrameLayout to apply the margins -->
+        <item name="android:layout_gravity">top</item>
+        <item name="android:layout_marginBottom">@dimen/sud_description_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/sud_description_margin_top</item>
+        <item name="android:lineSpacingExtra">@dimen/sud_description_line_spacing_extra</item>
+        <item name="android:textAppearance">@style/TextAppearance.SudDescription</item>
+    </style>
+
+    <!-- Ignore UnusedResources: Used by clients -->
+    <style name="SudDescription.Glif" parent="SudDescription" tools:ignore="UnusedResources">
+        <item name="android:layout_marginTop">@dimen/sud_description_glif_margin_top</item>
+        <item name="android:gravity">?attr/sudGlifHeaderGravity</item>
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">gravity</item>
+    </style>
+
+    <!-- Ignore UnusedResources: Used by clients -->
+    <style name="SudContent.Glif" parent="SudDescription" tools:ignore="UnusedResources">
+        <item name="android:layout_marginTop">@dimen/sud_content_glif_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/sud_content_glif_margin_bottom</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">gravity</item>
+    </style>
+
+    <style name="TextAppearance.SudDescription" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/sud_description_text_size</item>
+    </style>
+
+    <!-- Ignore UnusedResources: Used by clients -->
+    <style name="TextAppearance.SudDescription.Secondary"
+        parent="TextAppearance.SudDescription"
+        tools:ignore="UnusedResources">
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <!-- Ignore UnusedResources: Used by clients -->
+    <style name="SudRadioButton" tools:ignore="UnusedResources">
+        <item name="android:layout_marginBottom">@dimen/sud_radio_button_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/sud_radio_button_margin_start</item>
+        <item name="android:layout_marginStart" tools:ignore="NewApi">@dimen/sud_radio_button_margin_start</item>
+        <item name="android:layout_marginTop">@dimen/sud_radio_button_margin_top</item>
+        <item name="android:lineSpacingExtra">@dimen/sud_radio_button_line_spacing_extra</item>
+        <item name="android:paddingLeft">@dimen/sud_radio_button_padding_start</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/sud_radio_button_padding_start</item>
+        <item name="android:textAppearance">@style/TextAppearance.SudDescription</item>
+    </style>
+
+    <!-- Ignore UnusedResources: used by clients -->
+    <style name="SudCheckBox" tools:ignore="UnusedResources">
+        <item name="android:layout_marginBottom">@dimen/sud_check_box_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/sud_check_box_margin_start</item>
+        <item name="android:layout_marginStart" tools:ignore="NewApi">@dimen/sud_check_box_margin_start</item>
+        <item name="android:layout_marginTop">@dimen/sud_check_box_margin_top</item>
+        <item name="android:lineSpacingExtra">@dimen/sud_check_box_line_spacing_extra</item>
+        <item name="android:paddingLeft">@dimen/sud_check_box_padding_start</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/sud_check_box_padding_start</item>
+        <item name="android:textAppearance">@style/TextAppearance.SudDescription</item>
+    </style>
+
+    <!-- Ignore UnusedResources: used by clients -->
+    <style name="SudCheckBox.Multiline" parent="SudCheckBox" tools:ignore="UnusedResources">
+        <item name="android:gravity">top</item>
+    </style>
+
+    <style name="SudFillContentLayout">
+        <item name="android:minWidth">@dimen/sud_content_illustration_min_width</item>
+        <item name="android:minHeight">@dimen/sud_content_illustration_min_height</item>
+        <item name="android:maxWidth">@dimen/sud_content_illustration_max_width</item>
+        <item name="android:maxHeight">@dimen/sud_content_illustration_max_height</item>
+        <item name="android:paddingTop">@dimen/sud_content_illustration_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/sud_content_illustration_padding_vertical</item>
+    </style>
+
+    <!-- Ignore UnusedResources: used by clients -->
+    <style name="SudContentIllustration" tools:ignore="UnusedResources">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <!-- Card layout (for tablets) -->
+
+    <style name="SudBaseCardTitle">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:paddingBottom">@dimen/sud_card_title_padding_bottom</item>
+        <item name="android:paddingEnd" tools:ignore="NewApi">@dimen/sud_card_title_padding_end</item>
+        <item name="android:paddingLeft">@dimen/sud_card_title_padding_start</item>
+        <item name="android:paddingRight">@dimen/sud_card_title_padding_end</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/sud_card_title_padding_start</item>
+        <item name="android:paddingTop">@dimen/sud_card_title_padding_top</item>
+        <item name="android:textAppearance">@style/TextAppearance.SudCardTitle</item>
+    </style>
+
+    <style name="SudCardTitle" parent="SudBaseCardTitle" />
+
+    <style name="TextAppearance.SudCardTitle" parent="@style/TextAppearance.AppCompat.Display1">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- GLIF Card layout (for tablets) -->
+
+    <style name="SudGlifCardBackground">
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="SudGlifCardContainer">
+        <item name="android:background">?android:attr/colorBackground</item>
+        <item name="android:elevation" tools:ignore="NewApi">@dimen/sud_glif_card_elevation</item>
+    </style>
+
+    <style name="SudBase.ProgressBarLarge" parent="@android:style/Widget.ProgressBar.Large" />
+
+    <style name="SudFourColorIndeterminateProgressBar" parent="SudBase.ProgressBarLarge">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:paddingEnd" tools:targetApi="17" >@dimen/sud_glif_progress_bar_padding</item>
+        <item name="android:paddingLeft">@dimen/sud_glif_progress_bar_padding</item>
+        <item name="android:paddingRight">@dimen/sud_glif_progress_bar_padding</item>
+        <item name="android:paddingStart" tools:targetApi="17" >@dimen/sud_glif_progress_bar_padding</item>
+    </style>
+
+    <!-- Header layout (for phones) -->
+
+    <style name="SudBaseHeaderTitle">
+        <!-- Before Honeycomb, layout_gravity is needed for FrameLayout to apply the margins -->
+        <item name="android:layout_gravity">top</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:textSize">@dimen/sud_header_title_size</item>
+    </style>
+
+    <style name="SudHeaderTitle" parent="SudBaseHeaderTitle">
+        <item name="android:layout_marginBottom">@dimen/sud_header_title_margin_bottom</item>
+        <item name="android:layout_marginLeft">?attr/sudMarginSides</item>
+        <item name="android:layout_marginRight">?attr/sudMarginSides</item>
+        <item name="android:lineSpacingExtra">@dimen/sud_header_title_line_spacing_extra</item>
+        <item name="android:paddingBottom">@dimen/sud_header_title_padding_bottom</item>
+        <item name="android:paddingTop">@dimen/sud_header_title_padding_top</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- Button styles -->
+
+    <style name="SudButtonItem" />
+
+    <style name="SudButtonItem.Colored" parent="SudGlifButton.Primary" />
+
+    <!-- Use this style with a Button not a TextView, so that TalkBack will announce it as a
+         button. -->
+    <style name="SudGlifButton.BaseTertiary" parent="SudGlifButton.Secondary">
+        <!-- This style can be applied to a button either as a "style" in XML, or as a theme in
+             ContextThemeWrapper. These self-referencing attributes make sure this is applied as
+             both to the button. -->
+        <item name="android:buttonStyle">@style/SudGlifButton.Tertiary</item>
+        <item name="android:theme">@style/SudGlifButton.Tertiary</item>
+
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">sans-serif</item>
+        <item name="android:layout_gravity">?attr/sudGlifHeaderGravity</item>
+        <item name="android:layout_marginLeft">@dimen/sud_glif_negative_button_padding</item>
+        <item name="android:layout_marginRight">@dimen/sud_glif_negative_button_padding</item>
+        <!-- Always lowercase instead of reading attr/sudButtonAllCaps, since this is a tertiary
+             button -->
+        <item name="android:textAllCaps" tools:targetApi="ice_cream_sandwich">false</item>
+    </style>
+
+    <!-- Ignore UnusedResources: used by clients -->
+    <style name="SudGlifButton.Tertiary" parent="SudGlifButton.BaseTertiary"
+        tools:ignore="UnusedResources">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">?attr/sudButtonFontFamily</item>
+        <item name="textAllCaps" tools:targetApi="ice_cream_sandwich">false</item>
+    </style>
+
+    <style name="SudGlifButton.Primary" parent="Widget.AppCompat.Button.Colored">
+        <!-- This style can be applied to a button either as a "style" in XML, or as a theme in
+             ContextThemeWrapper. These self-referencing attributes make sure this is applied as
+             both to the button. -->
+        <item name="android:buttonStyle">@style/SudGlifButton.Primary</item>
+        <item name="android:theme">@style/SudGlifButton.Primary</item>
+        <item name="buttonStyle">@style/SudGlifButton.Primary</item>
+
+        <!-- Values used in styles -->
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">?attr/sudButtonFontFamily</item>
+        <item name="android:paddingLeft">@dimen/sud_glif_button_padding</item>
+        <item name="android:paddingRight">@dimen/sud_glif_button_padding</item>
+        <item name="android:textAllCaps" tools:targetApi="ice_cream_sandwich">?attr/sudButtonAllCaps</item>
+        <item name="textAllCaps">?attr/sudButtonAllCaps</item>
+        <item name="android:stateListAnimator">@null</item>
+
+        <!-- Values used in themes -->
+        <item name="android:buttonCornerRadius" tools:ignore="NewApi">?attr/sudButtonCornerRadius</item>
+    </style>
+
+    <style name="SudGlifButton.Secondary" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <!-- This style can be applied to a button either as a "style" in XML, or as a theme in
+             ContextThemeWrapper. These self-referencing attributes make sure this is applied as
+             both to the button. -->
+        <item name="android:buttonStyle">@style/SudGlifButton.Secondary</item>
+        <item name="android:theme">@style/SudGlifButton.Secondary</item>
+        <item name="buttonStyle">@style/SudGlifButton.Secondary</item>
+
+        <!-- Values used in styles -->
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">?attr/sudButtonFontFamily</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingLeft">@dimen/sud_glif_button_padding</item>
+        <item name="android:paddingRight">@dimen/sud_glif_button_padding</item>
+        <item name="android:textAllCaps" tools:targetApi="ice_cream_sandwich">?attr/sudButtonAllCaps</item>
+        <item name="textAllCaps">?attr/sudButtonAllCaps</item>
+
+        <!-- Values used in themes -->
+        <item name="android:buttonCornerRadius" tools:ignore="NewApi">?attr/sudButtonCornerRadius</item>
+        <item name="android:colorControlHighlight" tools:targetApi="lollipop">@color/sud_flat_button_highlight</item>
+        <item name="colorControlHighlight">@color/sud_flat_button_highlight</item>
+    </style>
+
+    <!-- The start and end paddings are asymmetric because start buttons are borderless buttons
+         which aligns the text label. -->
+    <style name="SudGlifButtonBar">
+        <item name="android:baselineAligned">false</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:minHeight">@dimen/sud_glif_footer_min_height</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingTop">@dimen/sud_glif_footer_padding_vertical</item>
+        <item name="android:paddingBottom">@dimen/sud_glif_footer_padding_vertical</item>
+        <item name="android:paddingEnd" tools:ignore="NewApi">@dimen/sud_glif_button_margin_end</item>
+        <item name="android:paddingLeft">@dimen/sud_glif_button_margin_start</item>
+        <item name="android:paddingRight">@dimen/sud_glif_button_margin_end</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/sud_glif_button_margin_start</item>
+    </style>
+
+    <style name="SudGlifButtonBar.Stackable" parent="SudGlifButtonBar">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Items styles -->
+
+    <style name="SudItemContainer">
+        <item name="android:minHeight">?android:attr/listPreferredItemHeight</item>
+        <item name="android:paddingBottom">@dimen/sud_items_padding_vertical</item>
+        <item name="android:paddingEnd" tools:ignore="NewApi">?attr/listPreferredItemPaddingRight</item>
+        <item name="android:paddingLeft">?attr/listPreferredItemPaddingLeft</item>
+        <item name="android:paddingRight">?attr/listPreferredItemPaddingRight</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">?attr/listPreferredItemPaddingLeft</item>
+        <item name="android:paddingTop">@dimen/sud_items_padding_vertical</item>
+    </style>
+
+    <style name="SudItemContainer.Description" parent="SudItemContainer">
+        <item name="android:paddingTop">@dimen/sud_description_margin_top</item>
+        <item name="android:paddingBottom">@dimen/sud_description_margin_bottom_lists</item>
+    </style>
+
+    <style name="SudItemContainer.Description.Glif" parent="SudItemContainer.Description">
+        <item name="android:minHeight">0dp</item>
+        <item name="android:paddingTop">@dimen/sud_description_glif_margin_top</item>
+        <item name="android:paddingBottom">@dimen/sud_description_glif_margin_bottom_lists</item>
+    </style>
+
+    <style name="SudItemContainer.Verbose" parent="SudItemContainer">
+        <item name="android:paddingBottom">@dimen/sud_items_verbose_padding_vertical</item>
+        <item name="android:paddingTop">@dimen/sud_items_verbose_padding_vertical</item>
+    </style>
+
+    <style name="SudItemSummary">
+        <item name="android:textAppearance">?attr/textAppearanceListItemSmall</item>
+    </style>
+
+    <style name="SudItemTitle">
+        <item name="android:textAppearance">?attr/textAppearanceListItem</item>
+    </style>
+
+    <style name="SudItemTitle.GlifDescription" parent="SudItemTitle">
+        <item name="android:gravity">?attr/sudGlifHeaderGravity</item>
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">gravity</item>
+    </style>
+
+    <style name="SudItemTitle.Verbose" parent="SudItemTitle">
+        <item name="android:textAppearance">@style/TextAppearance.SudGlifBody</item>
+    </style>
+
+    <style name="SudItemTitle.SectionHeader" parent="SudItemTitle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@string/sudFontSecondaryMedium</item>
+    </style>
+
+    <style name="SudSwitchStyle">
+        <item name="android:paddingEnd" tools:ignore="NewApi">@dimen/sud_switch_padding_end</item>
+        <item name="android:paddingLeft">@dimen/sud_switch_padding_start</item>
+        <item name="android:paddingRight">@dimen/sud_switch_padding_end</item>
+        <item name="android:paddingStart" tools:ignore="NewApi">@dimen/sud_switch_padding_start</item>
+    </style>
+
+    <style name="SudSwitchStyle.Divided" parent="SudSwitchStyle">
+        <item name="android:paddingEnd" tools:ignore="NewApi">?attr/listPreferredItemPaddingRight</item>
+        <item name="android:paddingRight">?attr/listPreferredItemPaddingRight</item>
+    </style>
+
+    <style name="TextAppearance.SudItemSummary" parent="android:TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <!-- GLIF layout -->
+
+    <style name="SudGlifHeaderTitle" parent="SudBaseHeaderTitle">
+        <item name="android:gravity">?attr/sudGlifHeaderGravity</item>
+        <item name="android:layout_marginBottom">@dimen/sud_glif_header_title_margin_bottom</item>
+        <item name="android:layout_marginLeft">?attr/sudMarginSides</item>
+        <item name="android:layout_marginRight">?attr/sudMarginSides</item>
+        <item name="android:layout_marginTop">@dimen/sud_glif_header_title_margin_top</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@string/sudFontSecondary</item>
+        <item name="android:textAlignment" tools:targetApi="jelly_bean_mr1">gravity</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+    <style name="SudGlifHeaderContainer">
+        <item name="android:gravity">?attr/sudGlifHeaderGravity</item>
+    </style>
+
+    <style name="SudGlifIcon">
+        <item name="android:layout_marginLeft">?attr/sudMarginSides</item>
+        <item name="android:layout_marginRight">?attr/sudMarginSides</item>
+        <item name="android:layout_marginTop">@dimen/sud_glif_margin_top</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:maxHeight">@dimen/sud_glif_icon_max_height</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="TextAppearance.SudGlifBody" parent="android:TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.SudGlifItemTitle" parent="android:TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.SudGlifItemSummary" parent="android:TextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <!-- Navigation bar styles -->
+
+    <style name="SudNavBarTheme">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">?attr/sudNavBarBackgroundColor</item>
+        <item name="android:paddingLeft">@dimen/sud_navbar_padding_sides</item>
+        <item name="android:paddingRight">@dimen/sud_navbar_padding_sides</item>
+        <item name="sudNavBarTextColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="SudNavBarThemeDark" parent="SudNavBarTheme">
+        <item name="sudNavBarBackgroundColor">@color/sud_navbar_bg_dark</item>
+        <item name="sudNavBarButtonBackground">@drawable/sud_navbar_btn_bg_dark</item>
+    </style>
+
+    <style name="SudNavBarThemeLight" parent="SudNavBarTheme">
+        <item name="sudNavBarBackgroundColor">@color/sud_navbar_bg_light</item>
+        <item name="sudNavBarButtonBackground">@drawable/sud_navbar_btn_bg_light</item>
+    </style>
+
+    <style name="SudNavBarButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">?attr/sudNavBarButtonBackground</item>
+        <item name="android:drawablePadding">@dimen/sud_navbar_button_drawable_padding</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:paddingLeft">@dimen/sud_navbar_button_padding_sides</item>
+        <item name="android:paddingRight">@dimen/sud_navbar_button_padding_sides</item>
+        <item name="android:textAllCaps" tools:ignore="NewApi">true</item>
+        <item name="android:textColor">?attr/sudNavBarTextColor</item>
+        <item name="android:textSize">@dimen/sud_navbar_text_size</item>
+    </style>
+
+
+    <style name="SudEditText" parent="@android:style/Widget.EditText">
+        <item name="android:minHeight">@dimen/sud_edit_text_min_height</item>
+    </style>
+
+    <style name="SudAlertDialogTheme" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:colorBackground">@color/sud_glif_v3_dialog_background_color_dark</item>
+        <item name="colorAccent">@color/sud_color_accent_glif_v3_dark</item>
+        <item name="dialogCornerRadius">@dimen/sud_glif_alert_dialog_corner_radius</item>
+    </style>
+
+    <style name="SudAlertDialogTheme.Light" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textAllCaps">false</item>
+        <item name="colorAccent">@color/sud_color_accent_glif_v3_light</item>
+        <item name="dialogCornerRadius">@dimen/sud_glif_alert_dialog_corner_radius</item>
+    </style>
+
+    <style name="SudDateTimePickerDialogTheme" parent="Theme.AppCompat.Dialog">
+        <item name="android:textAllCaps">false</item>
+        <item name="colorAccent">@color/sud_color_accent_glif_v3_dark</item>
+        <item name="dialogCornerRadius">@dimen/sud_glif_alert_dialog_corner_radius</item>
+    </style>
+
+    <style name="SudDateTimePickerDialogTheme.Light" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:textAllCaps">false</item>
+        <item name="colorAccent">@color/sud_color_accent_glif_v3_light</item>
+        <item name="dialogCornerRadius">@dimen/sud_glif_alert_dialog_corner_radius</item>
+    </style>
+
+</resources>
