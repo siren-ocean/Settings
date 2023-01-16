@@ -264,3 +264,4 @@ git ls-files -v | grep '^h' | awk '{print $2}' |xargs git update-index --no-assu
 * [SystemUI](https://github.com/siren-ocean/SystemUI)
 * [Launcher3](https://github.com/siren-ocean/Launcher3)
 * [DocumentsUI](https://github.com/siren-ocean/DocumentsUI)
+* [Camera2](https://github.com/siren-ocean/Camera2)
