@@ -1,5 +1,5 @@
 ## Settings from android-11.0.0_r10
-### Settings脱离源码在Android Studiod的编译
+### Settings脱离源码在Android Studio的编译
 ### 支持说明
 * 不试图改变项目本身的目录结构
 * 通过添加额外的配置和依赖构建Gradle环境支持
