@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2021 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/financed_privacy_settings">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:title="@string/financed_privacy_intro"
+        settings:searchable="false" />
+
+    <PreferenceCategory android:key="restrictions_category"
+        android:order="100"
+        android:title="@string/financed_privacy_restrictions_category"
+        android:contentDescription="@string/financed_privacy_restrictions_category">
+        <Preference android:key="financed_privacy_install_apps"
+            android:order="110"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_install_apps"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_safe_mode"
+            android:order="120"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_safe_mode"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_multi_users"
+            android:order="130"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_multi_users"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_config_date_time"
+            android:order="140"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_config_date_time"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_developer_options"
+            android:order="150"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_developer_options"
+            android:selectable="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="credit_provider_capabilities_category"
+        android:order="200"
+        android:title="@string/financed_privacy_credit_provider_capabilities_category"
+        android:contentDescription="@string/financed_privacy_credit_provider_capabilities_category">
+        <Preference android:key="financed_privacy_IMEI"
+            android:order="210"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_IMEI"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_factory_reset"
+            android:order="220"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_factory_reset"
+            android:selectable="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="locked_mode_category"
+        android:order="300"
+        android:title="@string/financed_privacy_locked_mode_category"
+        android:contentDescription="@string/financed_privacy_locked_mode_category">
+        <Preference android:key="financed_privacy_emergency_calls"
+            android:order="310"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_emergency_calls"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_system_info"
+            android:order="320"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_system_info"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_turn_on_off_device"
+            android:order="330"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_turn_on_off_device"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_notifications"
+            android:order="340"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_notifications"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_allowlisted_apps"
+            android:order="350"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_allowlisted_apps"
+            android:selectable="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="fully_paid_category"
+        android:order="400"
+        android:title="@string/financed_privacy_fully_paid_category"
+        android:contentDescription="@string/financed_privacy_fully_paid_category">
+        <Preference android:key="financed_privacy_restrictions_removed"
+            android:order="410"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_restrictions_removed"
+            android:selectable="false" />
+        <Preference android:key="financed_privacy_uninstall_creditor_app"
+            android:order="420"
+            android:layout_height="wrap_content"
+            android:title="@string/financed_privacy_uninstall_creditor_app"
+            android:selectable="false" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

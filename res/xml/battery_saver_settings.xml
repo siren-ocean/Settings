@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/battery_saver"
+    settings:keywords="@string/keywords_battery_saver">
+
+    <com.android.settingslib.widget.MainSwitchPreference
+        android:order="-100"
+        android:key="battery_saver"
+        android:title="@string/battery_saver_master_switch_title"
+        settings:controller="com.android.settings.fuelgauge.batterysaver.BatterySaverButtonPreferenceController"/>
+
+    <Preference
+        android:order="50"
+        android:key="battery_saver_schedule"
+        android:fragment="com.android.settings.fuelgauge.batterysaver.BatterySaverScheduleSettings"
+        android:title="@string/battery_saver_schedule_settings_title"
+        settings:keywords="@string/keywords_battery_saver_schedule"
+        settings:controller="com.android.settings.fuelgauge.batterysaver.BatterySaverSchedulePreferenceController"/>
+
+    <SwitchPreference
+        android:order="80"
+        android:key="battery_saver_sticky"
+        android:title="@string/battery_saver_sticky_title_new"
+        android:summary="@string/summary_placeholder"
+        settings:keywords="@string/keywords_battery_saver_sticky"
+        settings:controller="com.android.settings.fuelgauge.batterysaver.BatterySaverStickyPreferenceController"/>
+
+    <com.android.settingslib.widget.FooterPreference
+        android:order="100"
+        android:key="battery_saver_footer_preference"
+        android:title="@*android:string/battery_saver_description"
+        settings:searchable="false"/>
+</PreferenceScreen>
