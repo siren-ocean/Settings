@@ -19,11 +19,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion COMPILE_SDK
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
+        vectorDrawables.useSupportLibrary = true
     }
 
     buildTypes {
@@ -44,7 +45,7 @@ android {
 
 dependencies {
     implementation project(':setupcompat')
-    implementation "androidx.annotation:annotation:1.0.0"
-    implementation "androidx.recyclerview:recyclerview:1.0.0"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation libs.recyclerview
+    implementation libs.appcompat
+    implementation libs.material
 }
