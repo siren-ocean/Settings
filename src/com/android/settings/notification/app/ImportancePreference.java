@@ -36,8 +36,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.settings.R;
 import com.android.settings.Utils;
-import com.android.settingslib.R;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;

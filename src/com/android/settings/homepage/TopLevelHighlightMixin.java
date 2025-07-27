@@ -65,7 +65,7 @@ public class TopLevelHighlightMixin implements Parcelable, DialogInterface.OnSho
         return 0;
     }
 
-    public static final Creator<TopLevelHighlightMixin> CREATOR = new Creator<>() {
+    public static final Creator<TopLevelHighlightMixin> CREATOR = new Creator() {
         @Override
         public TopLevelHighlightMixin createFromParcel(Parcel source) {
             return new TopLevelHighlightMixin(source);
