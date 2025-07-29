@@ -1,5 +1,6 @@
 ## Settings from android-11.0.0_r10
 ### Settings脱离源码在Android Studiod的编译
+##### 不同安卓版本的支持请切换到对应的分支
 ### 支持说明
 * 不试图改变项目本身的目录结构
 * 通过添加额外的配置和依赖构建Gradle环境支持
@@ -12,8 +13,27 @@
 ![avatar](images/demonstration.gif)
 ---
 
+## 使用命令编译
+### 环境依赖
+*  Gradle 6.5
+*  JDK version 8
 
-## 执行步骤如下
+```
+# 构建环境
+gradle wrapper
+
+# 执行预过滤任务
+./gradlew :Filter:run
+
+# 打包编译
+ ./gradlew assemble
+```
+
+
+## 在Android Studio上编译
+### 推荐使用
+*  Android Studio 4.2.2 & JDK version 8
+
 #### 第一步：运行在Filter上的主函数，执行过滤任务
 <img src="images/filter_main.png" width = "718" height = "525"/>
 
