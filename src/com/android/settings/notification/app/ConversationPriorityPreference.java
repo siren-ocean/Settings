@@ -38,7 +38,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
 import com.android.settings.Utils;
-import com.android.settingslib.R;
+import com.android.settings.R;
 
 public class ConversationPriorityPreference extends Preference {
 

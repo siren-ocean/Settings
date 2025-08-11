@@ -30,7 +30,7 @@ import androidx.preference.PreferenceScreen;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.applications.intentpicker.AppLaunchSettings;
 import com.android.settings.applications.intentpicker.IntentPickerUtils;
-import com.android.settingslib.R;
+import com.android.settings.R;
 import com.android.settingslib.applications.AppUtils;
 import com.android.settingslib.applications.ApplicationsState;
 

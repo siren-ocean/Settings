@@ -37,7 +37,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.TextView;
 
 import com.android.settings.core.InstrumentedFragment;
-import com.android.settingslib.R;
+import com.android.settings.R;
 import com.android.settingslib.bluetooth.BluetoothBroadcastUtils;
 import com.android.settingslib.bluetooth.BluetoothUtils;
 import com.android.settingslib.core.lifecycle.ObservableFragment;

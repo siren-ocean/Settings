@@ -21,7 +21,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.FragmentManager;
 
-import com.android.settingslib.R;
+import com.android.settings.R;
 import com.android.settingslib.core.lifecycle.ObservableActivity;
 
 public abstract class QrCodeScanModeBaseActivity extends ObservableActivity {

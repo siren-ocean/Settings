@@ -72,8 +72,8 @@ public class LinkSpan extends ClickableSpan {
   }
 
   /* non-static section */
-
-  private final String id;
+  //改为public对象引用
+  public final String id;
 
   public LinkSpan(String id) {
     this.id = id;
@@ -137,7 +137,8 @@ public class LinkSpan extends ClickableSpan {
     drawState.setUnderlineText(false);
   }
 
-  public String getId() {
+  //删除此方法，因为与ClickableSpan父类继承方法冲突
+  /*public String getId() {
     return id;
-  }
+  }*/
 }
