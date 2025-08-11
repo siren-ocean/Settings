@@ -17,10 +17,11 @@ apply plugin: 'com.android.library'
 
 android {
     // Not specifying compileSdkVersion here so clients can specify it; must be at least Q
+    compileSdkVersion COMPILE_SDK
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion TARGET_SDK_VERSION
     }
 
     buildTypes {
@@ -44,5 +45,6 @@ android {
 }
 
 dependencies {
-    implementation "androidx.annotation:annotation:1.0.0"
+    implementation libs.appcompat
+    implementation libs.error_prone_annotations
 }
