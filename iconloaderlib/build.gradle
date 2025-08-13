@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion COMPILE_SDK
+    compileSdk COMPILE_SDK.toInteger()
 
     defaultConfig {
-        minSdkVersion MIN_SDK_VERSION
-        targetSdkVersion TARGET_SDK_VERSION
+        minSdk MIN_SDK_VERSION.toInteger()
+        targetSdk TARGET_SDK_VERSION.toInteger()
         vectorDrawables.useSupportLibrary = true
     }
 

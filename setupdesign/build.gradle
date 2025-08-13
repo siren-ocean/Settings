@@ -19,11 +19,11 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion COMPILE_SDK
+    compileSdk COMPILE_SDK.toInteger()
 
     defaultConfig {
-        minSdkVersion MIN_SDK_VERSION
-        targetSdkVersion TARGET_SDK_VERSION
+        minSdk MIN_SDK_VERSION.toInteger()
+        targetSdk TARGET_SDK_VERSION.toInteger()
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -53,5 +53,5 @@ dependencies {
     implementation libs.recyclerview
     implementation libs.appcompat
     implementation libs.material
-    implementation libs.error_prone_annotations
+    implementation libs.errorprone.annotations
 }

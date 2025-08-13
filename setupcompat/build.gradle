@@ -17,11 +17,11 @@ apply plugin: 'com.android.library'
 
 android {
     // Not specifying compileSdkVersion here so clients can specify it; must be at least Q
-    compileSdkVersion COMPILE_SDK
+    compileSdk COMPILE_SDK.toInteger()
 
     defaultConfig {
-        minSdkVersion MIN_SDK_VERSION
-        targetSdkVersion TARGET_SDK_VERSION
+        minSdk MIN_SDK_VERSION.toInteger()
+        targetSdk TARGET_SDK_VERSION.toInteger()
     }
 
     buildTypes {
@@ -42,9 +42,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        aidl = true
+    }
 }
 
 dependencies {
     implementation libs.appcompat
-    implementation libs.error_prone_annotations
+    implementation libs.errorprone.annotations
 }

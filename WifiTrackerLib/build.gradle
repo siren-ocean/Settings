@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion COMPILE_SDK
+    compileSdk COMPILE_SDK.toInteger()
 
     defaultConfig {
-        minSdkVersion MIN_SDK_VERSION
-        targetSdkVersion TARGET_SDK_VERSION
+        minSdk MIN_SDK_VERSION.toInteger()
+        targetSdk TARGET_SDK_VERSION.toInteger()
     }
 
     buildTypes {
@@ -26,9 +26,8 @@ android {
         abortOnError false
     }
 
-    afterEvaluate {
-        generateReleaseBuildConfig.enabled = false
-        generateDebugBuildConfig.enabled = false
+    buildFeatures {
+        buildConfig = false
     }
 
     sourceSets {
@@ -40,15 +39,9 @@ android {
     }
 }
 
-repositories {
-    flatDir {
-        dirs '../libs'
-    }
-}
-
 dependencies {
     compileOnly files('../libs/framework.jar')
     implementation libs.appcompat
-    implementation(name: 'preference-1.2.0-alpha01', ext: 'aar')
+    implementation(':preference-1.2.0-alpha01@aar')
     implementation project(':SettingsLib:HelpUtils')
 }

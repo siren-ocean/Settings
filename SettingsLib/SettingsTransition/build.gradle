@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion COMPILE_SDK
+    compileSdk COMPILE_SDK.toInteger()
 
     defaultConfig {
-        minSdkVersion MIN_SDK_VERSION
-        targetSdkVersion TARGET_SDK_VERSION
+        minSdk MIN_SDK_VERSION.toInteger()
+        targetSdk TARGET_SDK_VERSION.toInteger()
     }
 
     buildTypes {
@@ -26,9 +26,8 @@ android {
         abortOnError false
     }
 
-    afterEvaluate {
-        generateReleaseBuildConfig.enabled = false
-        generateDebugBuildConfig.enabled = false
+    buildFeatures {
+        buildConfig = false
     }
 
     sourceSets {
@@ -37,12 +36,6 @@ android {
             res.srcDirs = ['res']
             manifest.srcFile 'AndroidManifest.xml'
         }
-    }
-}
-
-repositories {
-    flatDir {
-        dirs '../../libs'
     }
 }
 
