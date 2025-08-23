@@ -1,0 +1,112 @@
+package {
+    default_team: "trendy_team_android_settings_app",
+    // See: http://go/android-license-faq
+    // A large-scale-change added 'default_applicable_licenses' to import
+    // all of the 'license_kinds' from "packages_apps_Settings_license"
+    // to get the below license kinds:
+    //   SPDX-license-identifier-Apache-2.0
+    default_applicable_licenses: ["packages_apps_Settings_license"],
+}
+
+// Build SettingsRoboTestStub.apk which includes test-only resources.
+android_app {
+    name: "SettingsRoboTestStub",
+    defaults: [
+        "SettingsLibDefaults",
+        "SettingsLib-search-defaults",
+    ],
+    platform_apis: true,
+    certificate: "platform",
+    privileged: true,
+    use_resource_processor: true,
+    resource_dirs: ["res"],
+
+    static_libs: [
+        "Settings-core",
+        "androidx.fragment_fragment-testing",
+        "frameworks-base-testutils",
+        "androidx.fragment_fragment",
+        "androidx.lifecycle_lifecycle-runtime-testing",
+        "kotlinx_coroutines_test",
+    ],
+
+    aaptflags: ["--extra-packages com.android.settings"],
+
+    libs: [
+        "telephony-common",
+        "ims-common",
+    ],
+    uses_libs: ["org.apache.http.legacy"],
+    optional_uses_libs: [
+        "androidx.window.extensions",
+        "androidx.window.sidecar",
+    ],
+}
+
+// Settings Robolectric test target.
+android_robolectric_test {
+    name: "SettingsRoboTests",
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+    ],
+
+    // test_suites attribute is not needed. This module will be configured in ATP GCL file.
+
+    static_libs: [
+        "Robolectric_shadows_androidx_fragment_upstream",
+        "Settings_robolectric_meta_service_file",
+        "SettingsLib-robo-testutils",
+        "Settings-robo-testutils",
+        "android.webkit.flags-aconfig-java",
+        "androidx.test.core",
+        "androidx.test.espresso.core",
+        "androidx.test.ext.junit",
+        "androidx.test.rules",
+        "androidx.test.runner",
+        "flag-junit",
+        "flag-junit-base",
+        "aconfig_settings_flags_lib",
+        "platform-test-annotations",
+        "Settings-testutils2",
+        "notification_flags_lib",
+        "com_android_server_accessibility_flags_lib",
+        "testables",
+    ],
+
+    libs: [
+        "ims-common",
+        "android.test.mock",
+    ],
+
+    java_resource_dirs: [
+        "config",
+        "resources",
+    ],
+
+    instrumentation_for: "SettingsRoboTestStub",
+
+    test_options: {
+        timeout: 36000,
+        shards: 10,
+    },
+
+    coverage_libs: [
+        "Settings-core",
+        "SettingsLib",
+        "SettingsLib-search",
+    ],
+
+    upstream: true,
+}
+
+java_library {
+    name: "Settings-robo-testutils",
+    srcs: ["testutils/**/*.java"],
+    libs: [
+        "Robolectric_all-target_upstream",
+        "Settings-core",
+        "mockito-robolectric-prebuilt",
+        "truth",
+    ],
+}

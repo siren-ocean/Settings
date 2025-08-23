@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    Copyright (C) 2018 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="412dp"
+    android:height="300dp"
+    android:viewportHeight="300"
+    android:viewportWidth="412">
+
+    <path
+        android:fillColor="@color/biometric_enroll_intro_color_bar"
+        android:pathData="M206,45.75a38,38,0,0,0-14.87,3h0A38.16,38.16,0,0,0,167.79,84v19.21h7V84A31.17,31.17,0,0,1,193.86,55.2h0a31.24,31.24,0,0,1,38.43,11.93l5.88-3.78A38.08,38.08,0,0,0,206,45.75Z" />
+    <path
+        android:fillColor="@color/biometric_enroll_intro_color_bar"
+        android:pathData="M238.18,63.35l-5.89,3.78A31.11,31.11,0,0,1,237.21,84v42.55h7V84A38.11,38.11,0,0,0,238.18,63.35Z" />
+    <path
+        android:fillColor="@color/biometric_enroll_intro_color_outline"
+        android:pathData="M271.77,254.25H140.23a14,14,0,0,1-14-14V138.51a14,14,0,0,1,14-14H271.77a14,14,0,0,1,14,14V240.25A14,14,0,0,1,271.77,254.25ZM140.23,128.51a10,10,0,0,0-10,10V240.25a10,10,0,0,0,10,10H271.77a10,10,0,0,0,10-10V138.51a10,10,0,0,0-10-10Z" />
+    <path
+        android:pathData="M184.93,211.5a27.89,27.89,0,0,1-1.48-8.33c0-11.42,9.71-20.71,22.58-20.71s22.58,9.29,22.58,20.71v0.62a7.71,7.71,0,0,1-7.71,7.71,7.63,7.63,0,0,1-7.13-4.84l-2.58-6.45a7.69,7.69,0,0,0-14.84,2.87,17.57,17.57,0,0,0,6.58,13.71l1.49,1.16"
+        android:strokeColor="@color/biometric_enroll_intro_color_icon"
+        android:strokeLineCap="round"
+        android:strokeMiterLimit="10"
+        android:strokeWidth="4.93" />
+    <path
+        android:pathData="M186.67,161.49a41.14,41.14,0,0,1,38.72,0"
+        android:strokeColor="@color/biometric_enroll_intro_color_icon"
+        android:strokeLineCap="round"
+        android:strokeMiterLimit="10"
+        android:strokeWidth="4.93" />
+    <path
+        android:pathData="M180.22,182.46c4.58-7.61,14.42-12.9,25.81-12.9s21.23,5.29,25.81,12.9"
+        android:strokeColor="@color/biometric_enroll_intro_color_icon"
+        android:strokeLineCap="round"
+        android:strokeMiterLimit="10"
+        android:strokeWidth="4.93" />
+    <path
+        android:pathData="M222.16,221.18a23.39,23.39,0,0,1-32.26,0"
+        android:strokeColor="@color/biometric_enroll_intro_color_icon"
+        android:strokeLineCap="round"
+        android:strokeMiterLimit="10"
+        android:strokeWidth="4.93" />
+</vector>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2017 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="power_usage_advanced_screen"
+    android:title="@string/advanced_battery_title"
+    settings:keywords="@string/keywords_battery_usage">
+
+    <PreferenceCategory
+        android:key="battery_tips_category"
+        settings:controller=
+            "com.android.settings.fuelgauge.batteryusage.BatteryTipsController"
+        settings:isPreferenceVisible="false">
+
+        <com.android.settings.fuelgauge.batteryusage.BatteryTipsCardPreference
+            android:key="battery_tips_card"
+            settings:isPreferenceVisible="false" />
+
+    </PreferenceCategory>
+
+    <com.android.settings.fuelgauge.batteryusage.BatteryHistoryPreference
+        android:key="battery_chart"
+        settings:controller=
+            "com.android.settings.fuelgauge.batteryusage.BatteryChartPreferenceController" />
+
+    <PreferenceCategory
+        android:key="screen_on_time_category"
+        settings:controller=
+            "com.android.settings.fuelgauge.batteryusage.ScreenOnTimeController"
+        settings:isPreferenceVisible="false">
+
+        <com.android.settings.fuelgauge.batteryusage.TextViewPreference
+            android:key="screen_on_time_text"
+            settings:isPreferenceVisible="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="battery_usage_breakdown"
+        settings:controller=
+            "com.android.settings.fuelgauge.batteryusage.BatteryUsageBreakdownController"
+        settings:isPreferenceVisible="false">
+
+        <com.android.settings.fuelgauge.batteryusage.SpinnerPreference
+            android:key="battery_usage_spinner"
+            settings:isPreferenceVisible="false" />
+
+        <PreferenceCategory
+            android:key="app_list"
+            settings:isPreferenceVisible="false" />
+
+        <com.android.settingslib.widget.FooterPreference
+            android:key="battery_usage_footer"
+            android:selectable="false"
+            settings:isPreferenceVisible="false"
+            settings:searchable="false" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

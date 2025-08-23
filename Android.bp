@@ -1,0 +1,169 @@
+package {
+    default_team: "trendy_team_android_settings_app",
+    default_applicable_licenses: ["packages_apps_Settings_license"],
+}
+
+// Added automatically by a large-scale-change
+// See: http://go/android-license-faq
+license {
+    name: "packages_apps_Settings_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+    ],
+    license_text: [
+        "NOTICE",
+    ],
+}
+
+java_library {
+    name: "settings-logtags",
+    srcs: ["src/**/*.logtags"],
+}
+
+genrule {
+    name: "statslog-settings-java-gen",
+    tools: ["stats-log-api-gen"],
+    cmd: "$(location stats-log-api-gen) --java $(out) --module settings" +
+        " --javaPackage com.android.settings.core.instrumentation --javaClass SettingsStatsLog",
+    out: ["com/android/settings/core/instrumentation/SettingsStatsLog.java"],
+}
+
+java_library {
+    name: "statslog-settings",
+    srcs: [
+        ":statslog-settings-java-gen",
+    ],
+}
+
+java_library {
+    name: "Settings-change-ids",
+    srcs: ["src/com/android/settings/ChangeIds.java"],
+    libs: [
+        "app-compat-annotations",
+    ],
+}
+
+android_library {
+    name: "Settings-core",
+    defaults: [
+        "SettingsLib-search-defaults",
+        "SettingsLintDefaults",
+        "SpaPrivilegedLib-defaults",
+    ],
+
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+    ],
+    exclude_srcs: [
+        "src/com/android/settings/biometrics/fingerprint2/lib/**/*.kt",
+    ],
+    use_resource_processor: true,
+    resource_dirs: [
+        "res",
+        "res-export", // for external usage
+        "res-product",
+    ],
+    static_libs: [
+        // External dependencies
+        "androidx.navigation_navigation-fragment-ktx",
+        "androidx.window_window-java",
+        "gson",
+        "guava",
+
+        // Android internal dependencies
+        "BiometricsSharedLib",
+        "SystemUIUnfoldLib",
+        "WifiTrackerLib",
+        "android.hardware.dumpstate-V1-java",
+        "android.hardware.dumpstate-V1.0-java",
+        "android.hardware.dumpstate-V1.1-java",
+        "android.view.accessibility.flags-aconfig-java",
+        "com_android_server_accessibility_flags_lib",
+        "net-utils-framework-common",
+        "notification_flags_lib",
+        "securebox",
+
+        // Settings dependencies
+        "FingerprintManagerInteractor",
+        "MediaDrmSettingsFlagsLib",
+        "Settings-change-ids",
+        "SettingsLib",
+        "SettingsLibDataStore",
+        "SettingsLibActivityEmbedding",
+        "aconfig_settings_flags_lib",
+        "accessibility_settings_flags_lib",
+        "app-usage-event-protos-lite",
+        "battery-event-protos-lite",
+        "battery-usage-slot-protos-lite",
+        "contextualcards",
+        "development_settings_flag_lib",
+        "factory_reset_flags_lib",
+        "fuelgauge-log-protos-lite",
+        "fuelgauge-usage-state-protos-lite",
+        "power-anomaly-event-protos-lite",
+        "settings-contextual-card-protos-lite",
+        "settings-log-bridge-protos-lite",
+        "settings-logtags",
+        "settings-telephony-protos-lite",
+        "statslog-settings",
+        "androidx.test.rules",
+        "telephony_flags_core_java_lib",
+        "setupdesign-lottie-loading-layout",
+    ],
+
+    plugins: ["androidx.room_room-compiler-plugin"],
+
+    errorprone: {
+        extra_check_modules: ["//external/nullaway:nullaway_plugin"],
+        javacflags: [
+            "-XepOpt:NullAway:AnnotatedPackages=com.android.settings",
+        ],
+    },
+
+    libs: [
+        "telephony-common",
+        "ims-common",
+    ],
+}
+
+platform_compat_config {
+    name: "settings-platform-compat-config",
+    src: ":Settings-change-ids",
+    system_ext_specific: true,
+}
+
+// Build the Settings APK
+android_app {
+    name: "Settings",
+    defaults: [
+        "platform_app_defaults",
+        "SpaPrivilegedLib-defaults",
+    ],
+    platform_apis: true,
+    certificate: "platform",
+    system_ext_specific: true,
+    privileged: true,
+    required: [
+        "privapp_whitelist_com.android.settings",
+        "settings-platform-compat-config",
+    ],
+    static_libs: ["Settings-core"],
+    uses_libs: ["org.apache.http.legacy"],
+    use_resource_processor: true,
+    resource_dirs: [],
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+}
+
+android_library_import {
+    name: "contextualcards",
+    aars: ["libs/contextualcards.aar"],
+}
+
+filegroup {
+    name: "Settings_proguard_flags",
+    srcs: ["proguard.flags"],
+}

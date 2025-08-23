@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2018 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<resources>
+    <!-- Reserve all the job ids in settings -->
+    <integer name="job_anomaly_clean_up">100</integer>
+    <integer name="job_anomaly_config_update">101</integer>
+    <integer name="job_anomaly_detection">102</integer>
+    <integer name="device_index_update">103</integer>
+    <integer name="sim_notification_send">104</integer>
+    <integer name="sim_slot_changed">105</integer>
+
+    <!-- Controls the maximum number of faces enrollable during SUW -->
+    <integer name="suw_max_faces_enrollable">1</integer>
+    <!-- Controls the maximum number of fingerprints enrollable during SUW -->
+    <integer name="suw_max_fingerprints_enrollable">1</integer>
+
+    <!-- Minimum display time (in millis) for help messages in fingerprint enrollment. -->
+    <integer name="enrollment_help_minimum_time_display">0</integer>
+    <!-- Minimum display time (in millis) for progress messages in fingerprint enrollment. -->
+    <integer name="enrollment_progress_minimum_time_display">0</integer>
+    <!-- The time (in millis) to wait to collect messages in fingerprint enrollment before displaying it. -->
+    <integer name="enrollment_collect_time">0</integer>
+</resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2018 The Android Open Source Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="216dp"
+        android:height="216dp"
+        android:viewportWidth="216"
+        android:viewportHeight="216">
+    <path
+        android:pathData="M107.5,214.9C48.8,214.9 1,167.1 1,108.4C1.1,49.7 48.8,2 107.5,2C166.2,2 214,49.7 214,108.4C214,167.1 166.2,214.9 107.5,214.9ZM107.5,12C54.3,12 11,55.3 11,108.5C11,161.7 54.3,205 107.5,205C160.7,205 204,161.7 204,108.5C204,55.3 160.7,12 107.5,12Z"
+        android:fillColor="@color/fingerprint_enrollment_finish_color_outline"/>
+    <path
+        android:pathData="M182.2,201.7C196.007,201.7 207.2,190.507 207.2,176.7C207.2,162.893 196.007,151.7 182.2,151.7C168.393,151.7 157.2,162.893 157.2,176.7C157.2,190.507 168.393,201.7 182.2,201.7Z"
+        android:fillColor="?android:attr/colorBackground"/>
+    <path
+        android:pathData="M182.2,149C166.9,149 154.4,161.4 154.4,176.8C154.4,192.2 166.8,204.6 182.2,204.6C197.6,204.6 210,192.2 210,176.8C210,161.4 197.5,149 182.2,149ZM182.2,198.9C170,198.9 160,188.9 160,176.7C160,164.5 170,154.5 182.2,154.5C194.4,154.5 204.4,164.5 204.4,176.7C204.4,189 194.4,198.9 182.2,198.9ZM176.7,182.8L169.5,175.6L165.6,179.5L176.7,190.6L198.9,168.4L195,164.5L176.7,182.8Z"
+        android:fillColor="@color/fingerprint_enrollment_finish_color_outline"/>
+    <path
+        android:pathData="M81.8,62C80.4,62 79,61.2 78.4,59.9C77.5,58 78.2,55.7 80.1,54.8C88.4,50.6 97.9,48.4 107.6,48.4C117.3,48.4 126.8,50.6 135.1,54.8C137,55.7 137.8,58 136.8,59.9C135.9,61.8 133.6,62.6 131.7,61.6C124.4,58 116.1,56.1 107.7,56.1C99.2,56.1 90.9,58 83.7,61.6C82.9,61.9 82.4,62 81.8,62Z"
+        android:fillColor="@color/fingerprint_enrollment_finish_color_outline"/>
+    <path
+        android:pathData="M147.3,93.501C146,93.501 144.8,92.901 144.1,91.701C137.5,81.401 123.1,74.701 107.5,74.701C91.9,74.701 77.5,81.401 70.9,91.701C69.8,93.501 67.4,94.001 65.6,92.901C63.8,91.801 63.3,89.401 64.4,87.601C72.5,75.001 89,67.101 107.4,67.101C125.8,67.101 142.3,75.001 150.4,87.601C151.5,89.401 151,91.801 149.2,92.901C148.8,93.301 148.1,93.501 147.3,93.501Z"
+        android:fillColor="@color/fingerprint_enrollment_finish_color_outline"/>
+    <path
+        android:pathData="M106.8,149.701C106.5,149.701 106.1,149.701 105.8,149.601C94.6,146.401 87.5,130.001 89.1,118.501C90.3,109.801 96.2,104.601 104.8,104.601C112.3,104.601 118.7,110.001 120,117.401L121.3,125.301C122,129.601 125.7,132.701 130,132.701C134.9,132.701 138.9,128.701 138.9,123.801V122.401C138.9,120.301 140.6,118.601 142.7,118.601C144.8,118.601 146.5,120.301 146.5,122.401V123.801C146.5,132.901 139.1,140.301 130,140.301C121.9,140.301 115.1,134.501 113.7,126.501L112.4,118.601C111.8,114.901 108.6,112.201 104.8,112.201C100,112.201 97.4,114.601 96.7,119.501C95.5,128.301 101.4,140.301 107.9,142.101C109.9,142.701 111.1,144.801 110.5,146.801C110,148.601 108.5,149.701 106.8,149.701Z"
+        android:fillColor="@color/fingerprint_enrollment_finish_color_outline"/>
+    <path
+        android:pathData="M75,140.4C73.5,140.4 72,139.5 71.4,137.9C68.6,130.5 68.5,122.8 68.5,122.5C68.5,102 85.6,85.9 107.5,85.9C129.4,85.9 146.5,102 146.5,122.5C146.5,124.6 144.8,126.3 142.7,126.3C140.6,126.3 138.9,124.6 138.9,122.5C138.9,106.3 125.2,93.5 107.6,93.5C90.1,93.5 76.3,106.2 76.3,122.5C76.3,122.6 76.3,129.1 78.7,135.2C79.5,137.2 78.5,139.4 76.5,140.2C76,140.3 75.5,140.4 75,140.4Z"
+        android:fillColor="@color/fingerprint_enrollment_finish_color_outline"/>
+    <path
+        android:pathData="M107.5,168.5C98.3,168.5 89.9,165.8 83,160.6C81.3,159.3 81,156.9 82.3,155.2C83.6,153.5 86,153.2 87.7,154.5C93.2,158.7 100.1,160.9 107.6,160.9C115.7,160.9 123.3,158.2 129.1,153.2C130.7,151.8 133.1,152 134.5,153.6C135.9,155.2 135.7,157.6 134.1,159C126.9,165.1 117.5,168.5 107.5,168.5Z"
+        android:fillColor="@color/fingerprint_enrollment_finish_color_outline"/>
+</vector>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2017 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/reset_dashboard_title">
+
+    <!-- Mobile Network reset -->
+    <com.android.settingslib.RestrictedPreference
+        android:key="network_reset_mobile_network_settings_pref"
+        android:title="@string/reset_mobile_network_settings_title"
+        settings:userRestriction="no_network_reset"
+        settings:useAdminDisabledSummary="true"
+        settings:isPreferenceVisible="@bool/config_show_sim_info"
+        android:fragment="com.android.settings.ResetNetwork" />
+
+    <!-- Bluetooth and WiFi reset -->
+    <com.android.settings.spa.preference.ComposePreference
+        android:key="network_reset_bluetooth_wifi_pref"
+        android:title="@string/reset_bluetooth_wifi_title"
+        settings:controller="com.android.settings.network.BluetoothWiFiResetPreferenceController" />
+
+    <!-- Reset app preferences -->
+    <com.android.settingslib.RestrictedPreference
+        android:key="reset_app_prefs"
+        android:title="@string/reset_app_preferences"
+        settings:userRestriction="no_control_apps" />
+
+    <!-- Erase Euicc data -->
+    <Preference
+        android:key="erase_euicc_data"
+        android:title="@string/reset_esim_title"
+        settings:isPreferenceVisible="@bool/config_show_sim_info"
+        settings:controller="com.android.settings.network.EraseEuiccDataController" />
+
+    <!-- Factory reset -->
+    <com.android.settingslib.RestrictedPreference
+        android:key="factory_reset"
+        android:title="@string/main_clear_title"
+        settings:keywords="@string/keywords_factory_data_reset"
+        settings:userRestriction="no_factory_reset"
+        settings:useAdminDisabledSummary="true"
+        settings:controller="com.android.settings.system.FactoryResetPreferenceController"
+        android:fragment="com.android.settings.MainClear" />
+
+    <Preference
+        android:key="factory_reset_demo_user"
+        android:title="@string/main_clear_title"
+        settings:keywords="@string/keywords_factory_data_reset"
+        settings:controller="com.android.settings.system.FactoryResetDemoUserPreferenceController"
+        android:fragment="com.android.settings.MainClear" />
+</PreferenceScreen>
