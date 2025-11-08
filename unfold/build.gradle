@@ -1,0 +1,41 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+}
+
+android {
+    namespace "com.android.systemui.unfold"
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+
+    buildFeatures {
+        aidl = true
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.dynamicanimation
+
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.kotlinx.coroutines.core
+    implementation libs.kotlin.reflect
+    implementation libs.core.ktx
+    implementation libs.dagger.android
+    kapt libs.dagger.compiler
+}

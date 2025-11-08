@@ -1,0 +1,54 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+}
+
+
+android {
+    namespace "com.android.settingslib.spaprivileged"
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildFeatures {
+        buildConfig = false
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+            manifest.srcFile 'AndroidManifest.xml'
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.10"
+    }
+}
+
+dependencies {
+    compileOnly files("../../libs/framework.jar")
+    implementation project(":SettingsLib")
+    implementation project(":SettingsLib:RestrictedLockUtils")
+    implementation project(":SettingsLib:AppPreference")
+    implementation project(":spa")
+
+    implementation libs.material3
+    implementation libs.lifecycle.livedata.ktx
+    implementation libs.lifecycle.runtime.compose
+    implementation libs.navigation.compose
+    implementation libs.compose.ui.tooling.preview
+}

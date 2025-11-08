@@ -4,17 +4,13 @@ plugins {
 }
 
 android {
-    namespace "com.android.launcher3.icons"
-
-    defaultConfig {
-        vectorDrawables.useSupportLibrary = true
-    }
+    namespace = "com.android.systemui.shared.biometrics"
 
     sourceSets {
         main {
-            java.srcDirs = ['src', 'src_full_lib']
-            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
             res.srcDirs = ['res']
+            manifest.srcFile 'AndroidManifest.xml'
         }
     }
 

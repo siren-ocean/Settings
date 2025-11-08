@@ -1,0 +1,82 @@
+pluginManagement {
+    repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        flatDir {
+            dirs("${rootDir}/libs")
+        }
+        google()
+        mavenCentral()
+        maven {
+            url = uri("https://jitpack.io")
+            content {
+                includeGroup("com.github.PhilJay")
+            }
+        }
+    }
+}
+
+include ':Filter'
+include ':WifiTrackerLib'
+include ':iconloaderlib'
+include ':setupcompat'
+include ':setupdesign'
+include ':biometrics'
+include ':biometrics'
+include ':unfold'
+include ':SettingsLib'
+include 'SettingsLib:Tile'
+include 'SettingsLib:AdaptiveIcon'
+include 'SettingsLib:RestrictedLockUtils'
+include 'SettingsLib:HelpUtils'
+include 'SettingsLib:SettingsTheme'
+include 'SettingsLib:AppPreference'
+include 'SettingsLib:SearchWidget'
+include 'SettingsLib:SettingsSpinner'
+include 'SettingsLib:LayoutPreference'
+include 'SettingsLib:ActionButtonsPreference'
+include 'SettingsLib:EntityHeaderWidgets'
+include 'SettingsLib:BarChartPreference'
+include 'SettingsLib:ProgressBar'
+include 'SettingsLib:Utils'
+include 'SettingsLib:ActionBarShadow'
+include 'SettingsLib:search'
+include 'SettingsLib:ActivityEmbedding'
+include 'SettingsLib:BannerMessagePreference'
+include 'SettingsLib:SettingsTransition'
+include 'SettingsLib:CollapsingToolbarBaseActivity'
+include 'SettingsLib:EmergencyNumber'
+include 'SettingsLib:FooterPreference'
+include 'SettingsLib:IllustrationPreference'
+include 'SettingsLib:UsageProgressBarPreference'
+include 'SettingsLib:TwoTargetPreference'
+include 'SettingsLib:TopIntroPreference'
+include 'SettingsLib:MainSwitchPreference'
+include 'SettingsLib:ButtonPreference'
+include 'SettingsLib:SelectorWithWidgetPreference'
+include 'SettingsLib:Color'
+include 'SettingsLib:DataStore'
+include 'SettingsLib:DeviceStateRotationLock'
+include 'SettingsLib:DisplayUtils'
+include 'SettingsLib:ProfileSelector'
+
+include ':spa'
+project(':spa').projectDir = new File('SettingsLib/Spa/spa')
+
+include ':SpaPrivileged'
+project(':SpaPrivileged').projectDir = new File('SettingsLib/SpaPrivileged')
+
+include ':lottie-loading-layout'
+project(':lottie-loading-layout').projectDir = new File('setupdesign/lottie_loading_layout')
