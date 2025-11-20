@@ -1,80 +1,81 @@
-# English | [中文文档](README.cn.md)
+# [English](README.md) | 中文文档
 ## Settings from android-12.1.0_r11
-### Building Settings outside AOSP source in Android Studio
-##### Please switch to the corresponding branch for different Android version support
-### Support Notes
-* Instead of changing the project's directory structure, we add additional configurations and dependencies to build Gradle environment support
-* Scripts are used to remove some attributes and fields not supported by AS, then utilize git local ignore
-* A small amount of code is modified, but overall it does not affect its compilation as an AOSP subproject using mm
-* The running effect will be slightly different from the native one, which is caused by style differences due to failed references to private attributes after being separated from the source code
+### Settings脱离源码在Android Studio的编译
+##### 不同安卓版本的支持请切换到对应的分支
+### 支持说明
+* 不试图改变项目本身的目录结构
+* 通过添加额外的配置和依赖构建Gradle环境支持
+* 会使用脚本移除一些AS不支持的属性和字段，然后利用git本地忽略
+* 修改少量代码，但是总体不影响其作为AOSP的子项目进行mm编译
+* 运行的效果会与原生的还是有些许差异，这是由于脱离源码之后，引用private属性失败所导致的样式差异
 
-### Pixel4 Running Effect: Gradle Build VS Android.bp Build
+###  pixel4运行效果：Gradle编译 VS Android.bp编译
 ---
 <img src="images/pixel4_settings_gradle.jpg" width = "225"/> <img src="images/pixel4_settings_original.jpg" width = "225"/>
 
 ---
 
-## Building with Command Line
-### Environment Requirements
+## 使用命令编译
+### 环境依赖
 *  Gradle 7.3.3  
 *  JDK version 11
 
 ```
-# Setup build environment
+# 构建环境
 gradle wrapper
 
-# Execute pre-filter task
+# 执行预过滤任务
 ./gradlew :Filter:run
 
-# Build and package
+# 打包编译
 ./gradlew assemble
 ```
 
 
-## Building in Android Studio
-### Recommended
+## 在Android Studio上编译
+### 推荐使用
 *  Android Studio Koala & JDK version 11
 
-#### Step 1: Run the main function on Filter to execute four filter tasks
+### 第一步：运行在Filter上的主函数，执行四个过滤任务
 <img src="images/filter_main.png" width = "700"/>
 
-*  Remove some attributes and fields not supported by AS, and reduce internationalization languages to speed up compilation
+*  移除一些AS不支持的属性和字段，以及减少国际化语言，加快编译速度
 
 <img src="images/filter_resource.png" width = "700"/>
 
-*  For reference values of androidprv:attr configurations not supported in AS, replace them with default values
+*  对于AS中不支持的androidprv:attr配置的引用值，用一个默认的值去代替
 
 <img src="images/filter_android_prv.png" width = "700"/>
 
-* Some attr definitions are considered duplicates and need to be extracted as global ones
+* 有些attr定义的时候被认为是重复的，需要提取出来作为全局的
 
 <img src="images/filter_attr.png" width = "700"/>
 
-* Add suffix names to some images
+* 给一些图片补上后缀名
 
 <img src="images/add_suffix_for_image.png" width = "700"/>
 
-#### Step 2: Execute Build APK in Android Studio, then push the apk to the Settings directory on the device
+### 第二步：执行Android Studio上Build APK的操作, 然后将apk推送到设备上Settings所在的目录
 
 ```
 adb push Settings.apk /system/system_ext/priv-app/Settings/
 
 adb shell killall com.android.settings
 ```
-### PS: The first push may not start properly, you need to reboot the device.
+#####  首次推送会起不来，需要重启一下设备
 ```
 adb reboot
 ```
-### PS: Direct installation is also supported
+#####  也支持直接安装
 
 ```
 adb install Settings.apk
 
 ```
 
-## Build Steps
+## 构建步骤
 
-### Step 1: Add Static Dependencies
+### Step1：引入静态依赖
 ##### @framework.jar:
 ```
 // android-12/out/target/common/obj/JAVA_LIBRARIES/framework_intermediates/classes-header.jar
@@ -175,26 +176,26 @@ implementation(name: 'preference-1.2.0-alpha01', ext: 'aar')
 
 
 ![avatar](images/preference-1.2.0-alpha01.png)
-### PS: androidx.preference is not easy to reference in the following way, so it is replaced with static dependency
+###### ps: androidx.preference 不容易通过以下方式去引用，故换成静态
 ```
 ## implementation 'androidx.preference:preference:1.2.0-alpha01'
 ```
 
 ##### @contextualcards.aar:
 ```
-// Built-in aar in the project, no need to import from elsewhere
+//项目自带aar,不需要从其他地方引入
 implementation(name: 'contextualcards', ext: 'aar')
 ```
 
 ##### @window_ext_lib.aar:
 ```
-// Built-in aar in the project
+//项目自带aar
 implementation(name: 'window_ext_lib', ext: 'aar')
 ```
 
 
-### Step 2: Add Module Dependencies
-##### Import code from specific paths directly into the project as Module dependencies. You can reference them through implementation project during build, or build aar with gradle build and place it in the libs folder.
+### Step2：引入Module
+##### 将具体路径下的代码直接导入到项目中作为Module依赖, 构建的时候可以直接通过implementation project引用，或者也可以gradle build生成aar,再放置到libs文件夹中，作为静态包使用。
 
 ##### @iconloaderlib: 
 ```
@@ -261,16 +262,16 @@ implementation project(':SettingsLib:EmergencyNumber')
 
 
 
-## Generate platform.keystore Default Signature
+## 生成platform.keystore默认签名
 
-Find the signing certificates in the android-12/build/target/product/security path and use [keytool-importkeypair](https://github.com/getfatday/keytool-importkeypair) to generate the keystore.
-Execute the following command:  
+在android-12/build/target/product/security路径下找到签名证书，并使用 [keytool-importkeypair](https://github.com/getfatday/keytool-importkeypair) 生成keystore,
+执行如下命令：  
 
 ```
 ./keytool-importkeypair -k platform.keystore -p 123456 -pk8 platform.pk8 -cert platform.x509.pem -alias platform
 ```
 
-And add the following code to the gradle configuration:
+并将以下代码添加到gradle配置中：
 
 ```
     signingConfigs {
@@ -298,25 +299,25 @@ And add the following code to the gradle configuration:
 ```
 
 ### PS:
-##### View ignored file list
+##### 查看被忽略的文件列表
 ```
 git ls-files -v | grep '^h\ '
 ```  
 
-##### Ignore and restore a single file
+##### 忽略和还原单个文件
 ``` 
 git update-index --assume-unchanged $path
 git update-index --no-assume-unchanged $path
 ``` 
 
-##### Restore all ignored files
+##### 还原全部被忽略的文件
 ```
 git ls-files -v | grep '^h' | awk '{print $2}' |xargs git update-index --no-assume-unchanged 
 ```
 
 ---
 
-### Related Projects
+### 关联项目
 * [SystemUI](https://github.com/siren-ocean/SystemUI)
 * [Launcher3](https://github.com/siren-ocean/Launcher3)
 * [DocumentsUI](https://github.com/siren-ocean/DocumentsUI)
