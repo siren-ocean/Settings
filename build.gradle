@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -43,13 +45,6 @@ android {
                 outputFileName = "Settings.apk"
             }
         }
-    }
-
-    kotlinOptions {
-        jvmTarget = "17"
-        freeCompilerArgs += [
-                '-Xjvm-default=all'
-        ]
     }
 
     sourceSets {
@@ -252,6 +247,14 @@ allprojects {
         task.doFirst {
             // 替换java.base
             options.compilerArgs += ["--patch-module", "java.base=${rootDir}/libs/core-all.jar"]
+        }
+    }
+    tasks.withType(KotlinCompile).configureEach {
+        kotlinOptions {
+            jvmTarget = "17"
+            freeCompilerArgs += [
+                    '-Xjvm-default=all'
+            ]
         }
     }
 }
